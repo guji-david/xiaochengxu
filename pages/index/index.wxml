@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="main">
+
+  <view class="main-search">
+    <view class="main-picker-zone">
+      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{zoneList}}">
+        <view>
+          <text>{{zoneList[casIndex]}}</text>
+        </view>
+      </picker>
+      <view class="main-picker-arrow"  >
+        <view class="bottom" >
+          <!--class="{{arrowToggle? 'picker-arrow-animation':''}}"-->
+          <text class="bottom-arrow1"></text>
+          <text class="bottom-arrow2"></text>
+        </view>
+      </view>
+
+    </view>
+    <view class="main-input-zone">
+      <image class="main-input-img" src="/static/img/search.png" mode="">
+      </image>
+      <input class="main-input" name="searchName" placeholder="餐厅名称，区域名称"
+             bindfocus="searchNameInput"/>
+    </view>
+
+
+
+  </view>
+
+  <view class="main-list">
+    <view class="main-list-zone" wx:for="{{menus}}" wx:for-item="item" wx:key="menus">
+      <view class="main-item-up">
+        <view class="main-item-img-zone">
+          <image class="main-item-img" src="{{item.logo}}" mode="">
+          </image>
+        </view>
+        <view class="main-item-context">
+          <view class="item-contxt-title"><text>{{item.title}}</text></view>
+          <view class="item-contxt-level">
+            <view  class="contxt-level-star"  wx:for="{{item.scores}}" wx:for-item="score" wx:key="item.scores">
+              <image class="star-img" src="/static/img/active.png" mode=""></image>
+            </view>
+            <view  class="contxt-level-star"  wx:for="{{5-item.scores}}" wx:for-item="score" wx:key="item.scores">
+              <image class="star-img" src="/static/img/hiden.png" mode=""> </image>
+            </view>
+            <text class="item-contxt-scores">{{item.scores}}.0 分</text>
+            <text class="item-contxt-type">{{item.type}}</text>
+          </view>
+          <view class="item-contxt-priceAndPrice">
+            <text class="item-contxt-price">人均￥{{item.price}}</text>
+            <text class="item-contxt-distance">距离 {{char_lt}}{{item.distance}}公里</text>
+          </view>
+
+        </view>
+        <view class="main-item-btn-zone">
+          <text class="main-item-btn">抢座</text>
+        </view>
+      </view>
+      <view class="main-item-down">
+        <text class="item-down-num">共{{item.num}}人抢座成功</text>
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>

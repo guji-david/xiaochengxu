@@ -1,0 +1,41 @@
+{
+  "pages":[
+    "pages/search/search",
+    "pages/index/index",
+    "pages/order/order",
+    "pages/userInfo/userInfo",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "微信",
+    "navigationBarTextStyle":"black",
+    "backgroundColor":"#aaa"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "有座",
+      "iconPath": "static/img/ico-home.png",
+      "selectedIconPath": "static/img/ico-home-d.png"
+    },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "static/img/ico-order.png",
+        "selectedIconPath": "static/img/ico-order-d.png"
+      }, {
+        "pagePath": "pages/userInfo/userInfo",
+        "text": "我的",
+        "iconPath": "static/img/ico-my.png",
+        "selectedIconPath": "static/img/ico-my-d.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}  

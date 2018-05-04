@@ -1,0 +1,53 @@
+.userinfo {
+
+}
+.user-comon {
+  width: 100%;
+   background: #4A4A4A;
+   color: #fff;
+  padding: 15rpx 30rpx;
+  font-size: 30rpx;
+}
+.user-comon .user-info-zone{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+}
+.user-info-zone .user-info-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+}
+.user-info-zone .user-info-text{
+  margin-left: 40rpx;
+}
+.user-info-tel{
+  position: relative;
+  margin-top: 14rpx;
+  padding: 30rpx;
+  background: #fff;
+
+}
+.user-info-tel .info-tel-pic{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+.info-tel-pic .tel-pic-img{
+  width: 50rpx;
+  height: 50rpx;
+}
+.info-tel-info{
+  position: absolute;
+  right: 40rpx;
+  top:30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+.info-tel-info .tel-info-img{
+  width: 28rpx;
+  height: 28rpx;
+}

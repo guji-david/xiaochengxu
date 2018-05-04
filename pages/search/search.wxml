@@ -1,0 +1,27 @@
+<view class="main">
+
+  <view class="main-search">
+    <view class="main-input-zone">
+      <image class="main-input-img" src="/static/img/search.png" mode="">
+      </image>
+      <input class="main-input" name="searchName" placeholder="餐厅名称，区域名称"
+             bindfocus="searchNameInput"/>
+    </view>
+
+
+
+  </view>
+  <view class="main-list">
+    <view class="main-list-title">热门搜索</view>
+    <view class="main-list-zone">
+      <view class="main-list-item" wx:for="{{hotSearchList}}" wx:for-item="item" wx:key="hotSearchList">{{item.name}}</view>
+    </view>
+  </view>
+  <view class="main-list">
+    <view class="main-list-title">历史搜索</view>
+    <view class="main-list-zone">
+      <view class="main-list-item" wx:for="{{historySearchList}}" wx:for-item="item" wx:key="historySearchList">{{item.name}}</view>
+    </view>
+  </view>
+
+</view>

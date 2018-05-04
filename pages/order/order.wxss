@@ -1,0 +1,71 @@
+.order {
+  display: flex;
+  flex-direction: column;
+}
+.order-block{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.order-block .order-comon {
+  width: 100%;
+  padding: 15rpx 30rpx;
+  font-size: 24rpx;
+}
+.order-comon .order-comon-before{
+  display: inline-block;
+  width: 42%;
+
+}
+.order-comon .order-comon-end{
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+.order-block .order-price {
+  margin-bottom: 20rpx;
+  padding-bottom:20rpx ;
+  border-bottom: 1px solid #F8F8F8;
+}
+.order-block .order-rush{
+ background:#F6FCEF ;
+}
+
+ .order-comon .order-info-zone{
+   display: flex;
+   flex-direction: row;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+}
+.order-info-zone .order-info-img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+}
+.order-info-zone .order-info-text{
+  margin-left: 20rpx;
+
+}
+.order-info .order-info-tel{
+  float: right;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 10rpx;
+  width:200rpx;
+  border-radius: 15rpx;
+  border: 1px solid #F8F8F8;
+}
+.order-info-tel .order-info-tel-img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 15rpx;
+}
+.order-block .order-give{
+  background: #F2F7FD;
+}
+.order-info2{
+  display: flex;
+  flex-direction: row;
+}
+.order-num{
+  border-top:1rpx solid #F8F8F8 ;
+}

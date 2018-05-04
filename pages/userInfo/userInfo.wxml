@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="userInfo">
+  <view class="user-comon">
+    <view class="user-info-zone" >
+      <image class="user-info-img" src="{{userInfo.avatarUrl}}" mode="">
+      </image>
+      <view class="user-info-text"  >
+        <view>{{userInfo.nickName}}</view>
+        <view>{{userInfo.gender == 1 ? '男' : '女'}}</view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="user-info-tel">
+    <view class="info-tel-pic">
+      <image class="tel-pic-img" src="/static/img/tel.png" mode="">
+      </image>
+      <text>手机号</text>
+    </view>
+    <view class="info-tel-info">
+      <view style="margin-right: 15rpx">189xxxx1234</view>
+      <image class="tel-info-img" src="/static/img/arrow.png" mode="">
+      </image>
+
+    </view>
+  </view>
+</view>
+

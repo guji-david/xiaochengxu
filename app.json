@@ -1,17 +1,17 @@
 {
   "pages":[
-    "pages/search/search",
     "pages/index/index",
-    "pages/order/order",
+    "pages/search/search",
     "pages/userInfo/userInfo",
-    "pages/logs/logs"
+    "pages/detail/detail",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微信",
     "navigationBarTextStyle":"black",
-    "backgroundColor":"#aaa"
+    "backgroundColor":"#EFEFEF"
   },
   "tabBar": {
     "list": [{

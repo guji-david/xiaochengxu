@@ -1,18 +1,40 @@
 <!--index.wxml-->
-<view class="userInfo">
+<view class="page">
+
   <view class="user-comon">
     <view class="user-info-zone" >
       <image class="user-info-img" src="{{userInfo.avatarUrl}}" mode="">
       </image>
       <view class="user-info-text"  >
         <view>{{userInfo.nickName}}</view>
-        <view>{{userInfo.gender == 1 ? '男' : '女'}}</view>
+        <view>{{userInfo.gender != 1 ? '女' : '男'}}</view>
       </view>
 
     </view>
   </view>
+   
 
-  <view class="user-info-tel">
+ <view class="weui-cell weui-cell_access my-weui-cell_access"hover-class="weui-cell_active" bindtap="modalinput">
+                            <view class="weui-cell__hd"><image src="/static/img/tel.png" style="width: 20px;height: 20px;margin-top:5px;margin-right: 5px" /></view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>手机号</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access">
+                            189xxxx1234
+                            </view>
+                        </view>
+
+
+
+
+
+ <modal hidden="{{hiddenmodalput}}" title="手机号绑定" confirm-text="提交11"  bindconfirm="confirm">  
+    <input type='text'placeholder="请输入内容" auto-focus/>  
+</modal>  
+
+
+
+  <!-- <view class="user-info-tel">
     <view class="info-tel-pic">
       <image class="tel-pic-img" src="/static/img/tel.png" mode="">
       </image>
@@ -24,6 +46,6 @@
       </image>
 
     </view>
-  </view>
+  </view> -->
 </view>
 

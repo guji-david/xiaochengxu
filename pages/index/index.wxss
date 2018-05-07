@@ -1,29 +1,27 @@
 /**index.wxss**/
 
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: #fff;
+  width: 100%;
+  padding: 15rpx 0;
 }
 /*---------------------------------------搜索框样式 begin---------------------------*/
 .main-search{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  width: 90%;
-  height: 60rpx;
-  margin: 15rpx 0 ;
-  border-radius: 40rpx;
-  border: 1px solid #aaa;
+  margin:0 30rpx ;
+  border-radius: 20rpx;
+  border: 1px solid #e6e6ea;
 }
  .main-search .main-picker-zone{
    position: relative;
+   margin:10rpx 0;
    width: 140rpx;
    padding-left:30rpx ;
    cursor: pointer;
-   border-right:1rpx solid #aaa ;
-}
+   border-right:1rpx solid #e6e6ea ;
+   color:#9b9b9b;
+ }
 .main-picker-zone .main-picker-arrow{
   position: absolute;
   top:18rpx;
@@ -56,83 +54,117 @@
 }
 .bottom-arrow1{
   top:1rpx;/*重要*/
-  border-top:15rpx black solid;
+  border-top:15rpx #9b9b9b solid;
 }
 .bottom-arrow2{
   border-top:15rpx white solid;
 }
 .main-input-zone{
-  /*padding-left: 30rpx;*/
+ margin:10rpx 0;
 
 }
-.main-input-zone .main-input-img{
-  float: left;
-  margin:10rpx 20rpx 0 20rpx;
-  width:35rpx;
-  height:35rpx;
+.main-input-zone .my-weui-icon-search{
+  margin:6rpx 10rpx 0;
 }
 .main-input-zone .main-input{
-  float: left;
-  text-indent: 10rpx;
+ display:inline-block;
+font-size:14px;
+vertical-align:middle;
+text-indent: 10rpx;
+  
 }
 /*---------------------------------------列表样式 begin---------------------------*/
 .main-list{
   width: 100%;
   height: 100%;
-  background: #eee;
+  overflow: hidden;
+  
 }
 .main-list-zone{
   width: 100%;
-  font-size: 28rpx;
+  font-size: 26rpx;
+  color:#999;
+ line-height:1.2;
+ margin-top:15rpx; 
+background: #fff;
+}
+.main-item-up-zone{
+  margin-left:30rpx; 
 }
 .main-item-up{
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap:wrap;
-  align-items: center;
-  text-align: center;
-  margin-top: 10rpx;
-  margin-bottom: 5rpx;
-  padding: 15rpx;
-  background: #fff;
+  display:-webkit-box;
+ display:-webkit-flex;
+ display:flex;
+  -webkit-box-align:center;
+ -webkit-align-items:center;
+ align-items:center;
+  padding:30rpx 0;
+position:relative;
+
+border-bottom: 1px solid #e6e6ea;
+
 }
 .main-item-up .main-item-img-zone{
-  width: 20%;
-  /*width: 100rpx;*/
-  /*margin:10rpx 15rpx;*/
+   margin-right:.8em;
+  width:120rpx;
+  height:120rpx;
+  line-height:120rpx;
+  text-align:center;
+
 
 }
 .main-item-img-zone .main-item-img{
-  width: 100rpx;
-  height: 100rpx;
+  width:100%;
+height:100%;
+vertical-align:top;
+
 
 }
 .main-item-context{
-  width: 50%;
- text-align: left;
+  -webkit-box-flex:1;
+-webkit-flex:1;
+flex:1;
+min-width:0;
+line-height:50rpx;
+
+
+}
+.item-contxt-title{
+  color: #000;
+  font-size:36rpx; 
+  font-weight:400;
 }
  .item-contxt-level .contxt-level-star{
   display: inline-block;
+  width:40rpx;
+ height:40rpx;
+ line-height:40rpx;
+text-align:center;
+
+
  }
 .item-contxt-level .contxt-level-star .star-img{
-   width: 30rpx;
-   height: 30rpx;
+   width:100%;
+height:100%;
+vertical-align:top;
+
  }
 
 .item-contxt-level .item-contxt-scores{
   margin: 0 15rpx;
-  color: #000000;
+  color:#F6B13E;
 }
 .item-contxt-level .item-contxt-type{
   margin-left: 5rpx;
-  color: #000000;
 }
 .item-contxt-priceAndPrice .item-contxt-distance{
   margin-left: 30rpx;
 }
 .main-item-btn-zone{
-  width: 30%;
+  position: absolute;
+  top:30%;
+  right:30rpx;
+  
 }
 .main-item-btn-zone .main-item-btn{
   border-radius:10rpx;
@@ -146,7 +178,7 @@
 .main-item-down{
   background: #fff;
   color:#F6B13E;
-  padding: 10rpx;
+  padding: 20rpx 10rpx;
 }
 .main-item-down .item-down-num{
   padding: 30rpx;

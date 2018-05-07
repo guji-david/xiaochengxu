@@ -1,29 +1,26 @@
-.userinfo {
 
-}
 .user-comon {
   width: 100%;
-   background: #4A4A4A;
+   background: #333;
    color: #fff;
   padding: 15rpx 30rpx;
-  font-size: 30rpx;
+  font-size: 32rpx;
 }
 .user-comon .user-info-zone{
   display: flex;
   flex-direction: row;
   align-items:center;
-  margin-top: 15rpx;
-  margin-left: 15rpx;
+  margin: 20rpx 15rpx;
 }
 .user-info-zone .user-info-img{
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 60rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 70rpx;
 }
 .user-info-zone .user-info-text{
   margin-left: 40rpx;
 }
-.user-info-tel{
+/* .user-info-tel{
   position: relative;
   margin-top: 14rpx;
   padding: 30rpx;
@@ -50,4 +47,7 @@
 .info-tel-info .tel-info-img{
   width: 28rpx;
   height: 28rpx;
+} */
+.my-weui-cell_access{
+  background: #fff;
 }

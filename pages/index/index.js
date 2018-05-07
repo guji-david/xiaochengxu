@@ -4,6 +4,7 @@ var app = getApp()
 Page({
     data: {
         zoneList: ['北京', '上海', '天津', '山西', '四川'],
+        inputVal:'',
        /* zoneList: [
             {key:'beijing',value:'北京'},
             {key:'shagnhai',value:'上海'},
@@ -12,7 +13,6 @@ Page({
             {key:'sichuan',value:'四川'},
         ],*/
         casIndex:2,
-        // arrowToggle:false,
         char_lt:'<',//小于号
         menus:[
             {id:0,logo:'/static/img/logo.jpg',title:'丰茂烧烤11',scores:1,type:'烧烤1',price:'15',distance:'10',num:'2000'},
@@ -39,17 +39,37 @@ Page({
               },
     searchNameInput:function (e) {
         wx.navigateTo({
-            url: '/pages/search/search?zone='+this.data.zoneList[this.data.casIndex]　
+            url: '/pages/search/search'
         })
         console.log(e.detail.value);
     },
     //事件处理函数
-    bindViewTap: function() {
+    bindViewTap: function (event) {
+      //获取数据详情所有内容；
+      console.log(event)
+      //获取数据绑定的data- 所有的数据
+      console.log(event.currentTarget.dataset.id);
+      let title= event.currentTarget.dataset.title;
+      
+      //获取数据所有的id
+      console.log(event.currentTarget.id);
         wx.navigateTo({
-            url: '../logs/logs'
+          url: '../detail/detail?title='+title
         })
     },
-    onLoad: function () {
+    onShow: function () {
+      let pages = getCurrentPages();
+      let currPage = pages[pages.length - 1];
+
+      this.setData({//将携带的参数赋值
+        inputVal: currPage.data.inputVal
+      });
+     
+      
+    },
+    onLoad: function (options) {
+     
+
         var that = this;
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function(userInfo){

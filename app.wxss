@@ -1,9 +1,10 @@
 /**app.wxss**/
-@import 'weui.wxss';
+ @import 'weui.wxss'; 
+/* @import 'dist/index.wxss'; */
 page{
   background-color:#F8F8F8;
   height:100%;
-  font-size:30rpx;
+  font-size:32rpx;
 }
 .container {
   height: 100%;

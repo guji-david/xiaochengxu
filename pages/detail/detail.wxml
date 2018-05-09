@@ -1,0 +1,242 @@
+<!--index.wxml-->
+<view class="order">
+
+<view class="order-block">
+    <view class="order-comon order-price">
+      <view class="order-comon-before">
+        <text>订单价格详情：</text>
+        <text style=" color:#FF7081;"> ￥{{price}}</text>
+      </view>
+      <view  class="order-comon-end">
+        <text>抢座成功 </text>
+      </view>
+
+    </view>
+    <view class="order-comon order-rush">
+      <view class="order-comon-before">
+        <text>抢座信息</text>
+      </view>
+      <view  class="order-comon-end">
+        <text>抢座时间：</text>
+        <text>2018/05/10 13:20</text>
+      </view>
+
+    </view>
+    <view class="order-comon order-info">
+     <view class="order-info-zone" >
+          <image class="order-info-img" src="{{userInfo.avatarUrl}}" >
+          </image>
+      </view>
+      <view class="order-comon-before">
+       <view class="order-info-text">
+          <view>张三</view>
+          <view>张三：3人</view>
+        </view>
+        
+
+      </view>
+      <view class="order-comon-end">
+              <view class="order-info-tel" bindtap="bindMakePhoneCall">
+                <image class="order-info-tel-img" src="/static/img/ico-tel.png" mode="">
+                </image>
+                <view style="margin-right:15rpx;">电话沟通</view>
+              </view>
+      </view>
+
+    </view>
+    <view class="order-comon order-give">
+      <view class="order-comon-before">
+        <text>让座信息</text>
+      </view>
+      <view  class="order-comon-end">
+        <text>让座时间：</text>
+        <text>2018/05/10 13:20</text>
+      </view>
+
+    </view>
+    <view class="order-comon order-info">
+     <view class="order-info-zone" >
+          <image class="order-info-img" src="{{userInfo.avatarUrl}}" mode="">
+          </image>
+         
+
+        </view>
+      <view class="order-comon-before">
+       
+         <view class="order-info-text"  >
+            <view >
+              <text >里斯</text>
+            </view>
+            <view><text>座位信息：</text> <text>北京厅</text></view>
+          </view>
+      </view>
+      <view class="order-comon-end">
+        <text>预留电话：</text>
+        <text>186XXXX1946</text>
+      </view>
+
+
+    </view>
+    <view class="order-comon order-num">
+        <text>订单号:</text>
+        <text style="margin-left: 15rpx">00000000000003</text>
+      </view>
+  </view>
+
+</view>
+
+
+
+<view class="cover" wx:if="{{maskVisable}}" > </view>
+
+  <!-----------------------抢座页面-------------------------------  -->
+<view class="actionSheet-layer" wx:if="{{seatVisable}}" >
+    <view class="seat-zone">
+        <view class="my-weui-cells">
+            <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">
+                 <view class="my-cancel" bindtap="bindSeatPop">
+                   <icon size="23"type="cancel" ></icon> 
+                  <!-- <text>x</text> -->
+                 </view>
+                   <view class="my-title"> 我要抢座</view>
+                </view>
+                
+            </view>
+            <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">
+                    <view class="my-userInfo">
+                           <view class="order-info-zone" >
+                                 <image class="order-info-img" src="{{userInfo.avatarUrl}}" >
+                                 </image>
+                             </view>
+                              <view style="margin-left: 15rpx;">
+                               {{userInfo.nickName}}
+                             </view>
+                    </view>
+                 </view>
+                
+            </view>
+            
+             <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">人数</view>
+                 <view class="my-weui-cell__ft">
+                    <input class="my-input" value="{{userInfoObj.totalPerson}}"></input>人
+                 </view>
+            </view>
+            <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">出价</view>
+                 <view class="my-weui-cell__ft">
+                    <input class="my-input"value="{{userInfoObj.totalPrice}}"></input>元
+                 </view>
+            </view>
+             <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">手  机  号</view>
+                  <view class="my-weui-cell__ft">
+                       <input class="my-input my-input-tel"
+                            placeholder='请输入真实号码，以便进行电话沟通'
+                            value="{{userInfoObj.phone}}"
+                       >
+                       </input>
+                       <text class="hid">元</text>
+                 </view>
+            </view>
+             <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">短信验证码</view>
+                 <view class="my-weui-cell__ft">
+                    <view>
+                         <input class="my-input my-input-code"
+                            placeholder='请输入验证码'
+                       >
+                       </input>
+                    </view>
+                     <view 
+               class="my-btn"
+               bindtap="bindViewTap">发送验证码</view> <text class="hid">元</text>
+                 </view>
+            </view>
+              <view class="my-weui-cell">
+              <view class="my-weui-textarea-zone">
+                  <textarea class="weui-textarea my-weui-textarea"
+                   value="{{userInfoObj.mark}}"
+                  placeholder="备注信息(选填)"></textarea>
+                  <view class="weui-textarea-counter">0/200</view>
+               </view>
+                  
+
+              </view>
+               <view class="my-button-zone" bindtap="bindSeatBtn">
+                <view class="my-button-confirm"> 确认抢座</view>
+                 
+            </view>
+        </view>
+    </view>
+ </view>
+
+  <!-----------------------支付页面-------------------------------  -->
+<view class="actionSheet-layer" wx:if="{{payVisable}}" >
+    <view class="seat-zone">
+        <view class="my-weui-cells">
+            <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">
+                 <view class="my-cancel" bindtap="bindSeatPop">
+                   
+                  <!-- <text>x</text> -->
+                 </view>
+                   <view class="my-title"> 支付</view>
+                </view>
+                
+            </view>
+            <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">
+                    <view class="my-userInfo">
+                           <view class="order-info-zone" >
+                                 <image class="order-info-img" src="{{userInfo.avatarUrl}}" >
+                                 </image>
+                             </view>
+                              <view style="margin-left: 15rpx;">
+                               {{userInfo.nickName}}
+                             </view>
+                    </view>
+                 </view>
+                
+            </view>
+            
+             <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">人数</view>
+                 <view class="my-weui-cell__ft">
+                    {{userInfoObj.totalPerson}}人
+                 </view>
+            </view>
+            <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">出价</view>
+                 <view class="my-weui-cell__ft">
+                    {{userInfoObj.totalPrice}}元
+                 </view>
+            </view>
+             <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">手  机  号</view>
+                  <view class="my-weui-cell__ft">
+                       {{userInfoObj.phone}}
+                 </view>
+            </view>
+             
+              <view class="my-weui-cell">
+              <view class="">
+                  12323
+               </view>
+                  
+
+              </view>
+               <view class="my-button-zone" bindtap="bindPayBtn">
+                <view class="my-button-confirm"> 确认支付</view>
+                 
+            </view>
+        </view>
+    </view>
+ </view>
+
+
+
+
+

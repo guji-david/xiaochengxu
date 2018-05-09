@@ -7,7 +7,7 @@
                     <input type="text" class="weui-search-bar__input" 
                     placeholder="餐厅名称，区域名称" value="{{inputVal}}" 
                     focus="{{inputShowed}}" 
-                    bindinput="inputTyping"
+                    bindchange="inputTyping"
                 
                      />
                     <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
@@ -56,7 +56,7 @@
       >{{item.name}}</view>
     </view>
   </view>
-  <view class="main-list">
+  <view class="main-list" wx:if="{{historySearchList.length != 0}}">
     <view class="main-list-title">历史搜索</view>
     <view class="main-list-zone">
       <view class="main-list-item" wx:for="{{historySearchList}}" wx:for-item="item" wx:key="historySearchList"

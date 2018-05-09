@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="order">
-  <view class="order-block">
+<view class="order-block">
     <view class="order-comon order-price">
       <view class="order-comon-before">
-        <text>订单价格：</text>
+        <text>订单价格详情：</text>
         <text style=" color:#FF7081;"> ￥{{price}}</text>
       </view>
       <view  class="order-comon-end">
@@ -22,23 +22,23 @@
 
     </view>
     <view class="order-comon order-info">
-      <view class="order-comon-before">
-        <view class="order-info-zone" >
-          <image class="order-info-img" src="{{userInfo.avatarUrl}}" mode="">
+     <view class="order-info-zone" >
+          <image class="order-info-img" src="{{userInfo.avatarUrl}}" >
           </image>
-        <view class="order-info-text">
+      </view>
+      <view class="order-comon-before">
+       <view class="order-info-text">
           <view>张三</view>
-          <view><text>人数：</text> <text>3人</text></view>
+          <view>张三：3人</view>
         </view>
-
-        </view>
+        
 
       </view>
       <view class="order-comon-end">
-              <view class="order-info-tel">
+              <view class="order-info-tel" bindtap="bindMakePhoneCall">
                 <image class="order-info-tel-img" src="/static/img/ico-tel.png" mode="">
                 </image>
-                <text>电话沟通</text>
+                <view style="margin-right:15rpx;">电话沟通</view>
               </view>
       </view>
 
@@ -54,20 +54,22 @@
 
     </view>
     <view class="order-comon order-info">
-      <view class="order-comon-before">
-        <view class="order-info-zone" >
+     <view class="order-info-zone" >
           <image class="order-info-img" src="{{userInfo.avatarUrl}}" mode="">
           </image>
-          <view class="order-info-text"  >
+         
+
+        </view>
+      <view class="order-comon-before">
+       
+         <view class="order-info-text"  >
             <view >
               <text >里斯</text>
             </view>
             <view><text>座位信息：</text> <text>北京厅</text></view>
           </view>
-
-        </view>
       </view>
-      <view class="order-comon-end" style="float: right;margin-right:60rpx;margin-top: 10rpx; ">
+      <view class="order-comon-end">
         <text>预留电话：</text>
         <text>186XXXX1946</text>
       </view>

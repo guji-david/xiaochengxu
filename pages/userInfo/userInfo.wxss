@@ -1,6 +1,6 @@
 
 .user-comon {
-  width: 100%;
+  /* width: 100%; */
    background: #333;
    color: #fff;
   padding: 15rpx 30rpx;

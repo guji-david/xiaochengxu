@@ -129,9 +129,14 @@ border-bottom: 1px solid #e6e6ea;
 }
 .my-weui-cell__bd .my-cancel{
   position: absolute;
-  top:-10rpx;
+  /* top:-10rpx; */
   left:-15rpx;
-
+  
+}
+.my-weui-cell__bd .my-cancel .my-cancel-img{
+ 
+   width: 40rpx;
+  height: 40rpx;
 }
 .my-weui-cell__bd .my-title{
   width: 100%;
@@ -144,6 +149,15 @@ border-bottom: 1px solid #e6e6ea;
  direction: row;
  align-items:center;
  justify-content:center;
+}
+.my-userInfo .my-order-info-zone{
+ margin-right: 15rpx;
+
+}
+.my-order-info-zone .my-order-info-img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius:30rpx; 
 }
 
 
@@ -168,17 +182,20 @@ border-radius:6rpx;
  
 }
 .my-weui-cell__ft .my-input-tel{
-  width:240px;
+  /* text-indent: 16rpx; */
+  padding-left:10rpx; 
+  text-align: left;
+  width:230px;
 }
 .my-weui-cell__ft .my-input-code{
-  width:140px;
+  width:130px;
 
 }
 
 .my-weui-cell__ft .my-btn{
 
  margin-right:14rpx;
-border:1px solid #e6e6ea;
+/* border:1px solid #e6e6ea; */
 border-radius:6rpx;
  text-align:center;
   line-height: 1.4rem;
@@ -186,6 +203,8 @@ border-radius:6rpx;
   padding: 4rpx 0;
    /* padding: 6rpx 19rpx; */
   width:90px;
+  font-size:28rpx;
+  background-color:#fff;
 
 }
 .my-weui-cell__ft .hid{

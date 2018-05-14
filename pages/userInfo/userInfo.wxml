@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<import src="../../public/html/template.wxml" />
 <view class="page">
 
   <view class="user-comon">
@@ -28,24 +29,60 @@
 
 
 
- <modal hidden="{{hiddenmodalput}}" title="手机号绑定" confirm-text="提交11"  bindconfirm="confirm">  
-    <input type='text'placeholder="请输入内容" auto-focus/>  
-</modal>  
+ <modal hidden="{{hiddenmodalput}}" title="手机号绑定" no-cancel= "true" confirm-text="确定"  bindconfirm="confirm">  
+   
+       <view class="my-weui-cells">
+           <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">手 
+                 <text class="hid">1</text>机 
+                 <text class="hid">2</text>号</view>
+                  <view class="my-weui-cell__ft">
+                       <input class="my-input my-input-tel"
+                            placeholder='请输入真实的手机号码'
+                            value="{{phone}}"
+                            bindchange="phone"
+                            maxlength="11"
+                       >
+                       </input>
+                    
+                 </view>
+            </view>
+
+
+           <view class="my-weui-cell">
+                 <view class="my-weui-cell__bd">短信验证码</view>
+                 <view class="my-weui-cell__ft">
+                    <view>
+                         <input class="my-input my-input-code"
+                             placeholder='请输入验证码'
+                             bindchange="code"
+                             value="{{code}}"
+                              maxlength="6"
+                       >
+                       </input>
+                    </view>
+                     <button 
+               class="my-btn"
+               bindtap="bindSendCodeTap"  disabled="{{disabled}}" >{{getVerifyCodeText}}</button> 
+                 </view>
+            </view>
 
 
 
-  <!-- <view class="user-info-tel">
-    <view class="info-tel-pic">
-      <image class="tel-pic-img" src="/static/img/tel.png" mode="">
-      </image>
-      <text>手机号</text>
-    </view>
-    <view class="info-tel-info">
-      <view style="margin-right: 15rpx">189xxxx1234</view>
-      <image class="tel-info-img" src="/static/img/arrow.png" mode="">
-      </image>
 
-    </view>
-  </view> -->
+       </view>
+   
+
+      
+
+
+
+
+
+</modal>
+
+    <template is="toast" data="{{txt,isShow,iconClass}}"></template>
+
+
 </view>
 

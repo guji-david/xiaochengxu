@@ -1,5 +1,22 @@
 //app.js
 App({
+
+  //toast函数
+  toastShow: function (that, str, icon) {
+    that.setData({
+      isShow: true,
+      txt: str,
+      iconClass: icon
+    });
+    // setTimeout(function () {
+    //   that.setData({
+    //     isShow: false
+    //   });
+    // }, 1500);
+  }, 
+
+
+
     //当程序初始化的时候执行onLaunch里面的内容
     onLaunch: function () {
         //调用API从本地缓存中获取数据

@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/userInfo/userInfo",
     "pages/detail/detail",
     "pages/index/index",
     "pages/search/search",
-    "pages/userInfo/userInfo",
     "pages/order/order"
   ],
   "window": {

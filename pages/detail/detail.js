@@ -1,4 +1,5 @@
 //index.js
+var util = require('../../utils/util.js');
 //获取应用实例
 var app = getApp()
 Page({

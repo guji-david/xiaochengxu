@@ -32,6 +32,17 @@
  <modal hidden="{{hiddenmodalput}}" title="手机号绑定" no-cancel= "true" confirm-text="确定"  bindconfirm="confirm">  
    
        <view class="my-weui-cells">
+
+         
+                 
+                 <view class="my-cancel" bindtap="cancel">
+                   
+                     <image class="my-cancel-img" src="/static/img/close.png" >
+                         </image>
+                 </view>
+                
+              
+           
            <view class="my-weui-cell">
                  <view class="my-weui-cell__bd">手 
                  <text class="hid">1</text>机 
@@ -81,7 +92,7 @@
 
 </modal>
 
-    <template is="toast" data="{{txt,isShow,iconClass}}"></template>
+    <template is="toast" data="{{toastText,isShowToast}}"></template>
 
 
 </view>

@@ -2,17 +2,17 @@
 App({
 
   //toast函数
-  toastShow: function (that, str, icon) {
+  toastShow: function (that,str) {
+    
     that.setData({
-      isShow: true,
-      txt: str,
-      iconClass: icon
+      isShowToast:true,
+      toastText: str,
     });
-    // setTimeout(function () {
-    //   that.setData({
-    //     isShow: false
-    //   });
-    // }, 1500);
+    setTimeout(function () {
+      that.setData({
+        isShowToast: false
+      });
+    }, 1000);
   }, 
 
 

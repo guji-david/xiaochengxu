@@ -11,11 +11,12 @@ Page({
         intervalId: '',
         disabled: false,
         code: '',//验证码
-        phone: '',//手机号
+        phone:'',//手机号
        
     },
-    his_clear:function(){
-        app.toastShow(this, "清除成功", "icon-correct");
+    //toast 全局调用
+    toastApply:function(msg){
+        app.toastShow(this,msg);
     },
     //验证码输入框
     code: function (e) {
@@ -23,30 +24,35 @@ Page({
       that.setData({
         code: e.detail.value
       })
+      if (!util.checkCode(e.detail.value)) {
+        this.toastApply("请输入6位验证号");
+        return;
+      }
     },
     //手机号输入框
     phone: function (e) {
-      console.log(e.detail.value);
+        if (!util.checkTel(e.detail.value)){
+            this.toastApply("请输入正确的手机号");
+        }
       var that = this;
       that.setData({
         phone: e.detail.value
       })
-      if (!util.checkTel(e.detail.value)){
-        wx.showToast({
-          title: '请输入正确的手机号',
-          // icon: 'succes',
-          duration: 1000,
-          mask: true
-        })
-      }
+
     },
-    //点击按钮指定的hiddenmodalput弹出框  
+
 
 
     //发送验证码按钮--------------------------------------------------begin
     bindSendCodeTap: function () {
+      if (!util.checkTel(this.data.phone)) {
+        this.toastApply("请输入正确的手机号");
+
+        return;
+      }
+      
       this.disabled = true;
-      console.log(11111)
+      
       this.setData({
         disabled: true
       })
@@ -110,15 +116,20 @@ Page({
     //确认  
     confirm: function () {
       if (!util.checkTel(this.data.phone)) {
-        this.his_clear();
-     
+        this.toastApply("请输入正确的手机号");
+       return;
       }
-      // this.setData({
-      //   hiddenmodalput: true
-      // })
+      if (!util.checkCode(this.data.code)) {
+        this.toastApply("请输入6位验证号");
+        return;
+      }
+      this.setData({
+        hiddenmodalput: true
+      })
     } ,
 
     onLoad: function () {
+    
         var that = this;
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function(userInfo){

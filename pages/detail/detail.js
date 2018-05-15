@@ -5,8 +5,11 @@ var app = getApp()
 Page({
     data: {
         maskVisable:false,
-        seatVisable: false,
+        seatGiveVisable:false,
         payVisable:false,
+        orderModalVisable:true,
+        orederCancelVisable:false,
+        orederSeatVisable:false,
         title:'',
         id:'',
         price: 5,
@@ -21,45 +24,71 @@ Page({
           getVerifyCodeText:'获取验证码',
           count:6,
           intervalId:'',
-          disabled:false
+          disabled:false,
+          desensPhone:'',
+          noticeMsg:'花钱省时间,支付成功后,你将可以随时消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
+          seatsdate:'',
+         seatRushVisable:true
         
     },
+    //toast 全局调用
+    toastApply:function(msg){
+        app.toastShow(this,msg);
+    },
+    //人数 方法
     totalPerson: function (e) {
+        if (!util.checkNum(e.detail.value)) {
+            this.toastApply("请输入长度不超过2的数字");
+            return;
+        }
       var that = this;
       that.setData({
         totalPerson: e.detail.value
       })
-    },//人数
+    },
+    //出价 方法
     totalPrice: function (e) {
+        if (!util.checkNum(e.detail.value)) {
+            this.toastApply("出价不能为空");
+            return;
+        }
       var that = this;
       that.setData({
         totalPrice: e.detail.value
       })
-    },//出价
+    },
+
+    //手机号 方法
+    phone: function (e) {
+        if (!util.checkTel(e.detail.value)){
+            this.toastApply("请输入正确的手机号");
+        }
+        var that = this;
+        that.setData({
+            phone: e.detail.value
+        })
+        util.setList('mobile', this.data.phone)
+    },
+    //验证码 方法
     code: function (e) {
+        if (!util.checkCode(e.detail.value)) {
+            this.toastApply("请输入6位验证号");
+            return;
+        }
       var that = this;
       that.setData({
         code: e.detail.value
       })
-    },//验证码
-    phone: function (e) {
-      var that = this;
-      that.setData({
-        phone: e.detail.value
-      })
-    },//手机号
-    mark: function (e) {
+    },
+  
+    //备注 方法
+    mark:function (e) {
       var that = this;
       that.setData({
         mark: e.detail.value
       })
-    },//备注
-    //事件处理函数
-    bindViewTap: function() {
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
     },
+   
     //电话沟通
     bindMakePhoneCall:function(){
       wx.makePhoneCall({
@@ -71,20 +100,23 @@ Page({
     bindSeatPop: function () {
       this.setData({
         maskVisable: false,
-        seatVisable: false
+        seatGiveVisable: false
       })
     },
-    //关闭抢座弹出框
+    //
     bindParPop: function () {
       this.setData({
         payVisable: false,
-        seatVisable: true
+        seatGiveVisable: true
       })
     },
     //发送验证码按钮--------------------------------------------------begin
     bindSendCodeTap: function () {
+        if (!util.checkTel(this.data.phone)) {
+            this.toastApply("请输入6位验证号");
+            return;
+        }
       this.disabled = true;
-      console.log(11111)
       this.setData({
         disabled: true
       })
@@ -132,19 +164,40 @@ Page({
 
 
     //确认抢座按钮
-    bindSeatBtn: function () {
+    bindSeatBtn:function () {
+        console.log(1111)
+        if (!util.checkNum(this.data.totalPerson)) {
+            console.log(22222)
+            this.toastApply("人数不能为空或超过100");
+            return;
+        }
+        if (!util.checkNum(this.data.totalPrice)) {
+            this.toastApply("出价不能为空");
+            return;
+        }
+        if (!util.checkTel(this.data.phone)) {
+            this.toastApply("请输入正确的手机号");
+            return;
+        }
+        if (!util.checkCode(this.data.code)) {
+            this.toastApply("请输入正确的验证码");
+            return;
+        }
+
       this.setData({
+          desensPhone:util.desensitization(util.getList('mobile')),
         payVisable: true,
-        seatVisable: false
+        seatGiveVisable:false
       })
     },
     //确认支付按钮
     bindPayBtn: function () {
       this.setData({
         maskVisable: false,
-        payVisable: false
-      })
+        payVisable: false,
 
+      })
+      //  调用微信接口
       wx.requestPayment(
         {
           'timeStamp': '',
@@ -156,30 +209,67 @@ Page({
           'fail': function (res) { },
           'complete': function (res) { }
         }) 
+    // 设置抢座时间
+        this.setData({
+            seatsdate:util.formatTime(new Date()),
+            orederCancelVisable:true
+        })
 
 
     },
-    onLoad: function (options) {
-        console.log('onLoad');
-      
+    //取消订单
+    cancelOrder:function(){
         this.setData({
+            orderModalVisable:false
+        })
+    },
+    //弹出框确认按钮
+    orderModalConfirm:function () {
+    //    调用微信退换支付接口
+        this.setData({
+            orderModalVisable:true,
+            orederCancelVisable:false,
+            orederSeatVisable:true,
+        })
+    },
+    //弹出框取消按钮
+    orderModalCancel:function(){
+        this.setData({
+            orderModalVisable:true,
+        })
+    },
+    //给他让座按钮
+    seatModalBtn:function(){
+        this.setData({
+            seatRushVisable:false,
+        })
+    },
+    //给他让座确定按钮
+    seatModaComfirmlBtn:function(){
+        this.setData({
+            seatRushVisable:true,
+        })
+    },
+    //关闭让座弹出框
+    bindGiveSeatPop: function () {
+        this.setData({
+            seatRushVisable:true
+        })
+    },
+    onLoad: function (options) {
+        this.setData({
+            // seatRushVisable:false
           maskVisable: true,
-          seatVisable: true
+          seatGiveVisable: true
         })
         var that = this;
-        // that.setData({
-        //   title: options.title//options为页面路由过程中传递的参数
-        // })
-        // wx.setNavigationBarTitle({
-        //   title: that.data.title//页面标题为路由参数
-        // })
+
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function(userInfo){
             //更新数据
             that.setData({
                 userInfo:userInfo
             })
-            console.log(that.data.userInfo);
         })
     }
 })

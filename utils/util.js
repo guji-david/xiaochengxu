@@ -36,16 +36,45 @@ function unique(list) {
   }
   return res;
 }
+//数据脱敏
+function desensitization(tel){
+    if(!!tel){
+        return tel.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+    }else{
+        return tel;
+    }
+}
 // --------------------------------------正则表达式----------------------------
 //检查手机号码
 function checkTel(tel) {
   var reg = /^[1][0-9]{10}$/;
   return tel && reg.test(tel);
 }
-
+//检查手机号码
+function checkCode(code) {
+  var reg = /^[0-9]{6}$/;
+  return code && reg.test(code);
+}
+//检查数字
+export function checkNum(num) {
+    var reg =/^(\d{0,10})$/;
+    return num && reg.test(num);
+}
 //--------------------------------------------------------------------window.sessionStorage 保存对象
- function setList(key,value) {
+//保存开户行手机号
+export function setMobile(key,value){
 
+    wx.setStorageSync(key,value)
+}
+//获取开户行手机号
+export function getMobile(key){
+    return   wx.getStorageSync(key)
+}
+
+
+
+
+ function setList(key,value) {
   try {
     wx.setStorageSync(key,value)
   } catch (e) {
@@ -81,7 +110,12 @@ function checkTel(tel) {
 
 module.exports = {
     formatTime:formatTime,
-    checkTel: checkTel,
+    checkTel:checkTel,
+    checkCode:checkCode,
+    checkNum:checkNum,
+    desensitization:desensitization ,
+    setMobile: setMobile,
+    getMobile: getMobile,
     setList: setList,
     getList: getList,
     unique: unique

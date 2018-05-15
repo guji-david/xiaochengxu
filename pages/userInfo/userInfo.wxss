@@ -57,13 +57,17 @@ align-items:center;
  flex:1;
 
 }
-.my-weui-cell__bd .my-cancel{
+ .my-cancel{
   position: absolute;
-  /* top:-10rpx; */
-  left:-15rpx;
+   top:-90rpx; 
+  left:-20rpx;
   
 }
-
+.my-cancel .my-cancel-img{
+ 
+   width: 40rpx;
+  height: 40rpx;
+}
 
 
 

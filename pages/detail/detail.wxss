@@ -97,12 +97,12 @@ border-bottom: 1px solid #e6e6ea;
 .my-weui-cell__bd .my-cancel{
   position: absolute;
    top:-10rpx; 
-  left:-15rpx;
+  left:-25rpx;
   
 }
 .my-weui-cell__bd .my-cancel .my-cancel-img{
-    width: 40rpx;
-  height: 40rpx;
+    width: 50rpx;
+  height: 50rpx;
 }
 .my-weui-cell__bd .my-title{
   width: 100%;
@@ -139,7 +139,7 @@ border-bottom: 1px solid #e6e6ea;
 }
 
 .my-weui-cell__ft .my-input{
-  width:90px;
+  width:40px;
  margin-right:14rpx;
 border:1px solid #e6e6ea;
 border-radius:6rpx;
@@ -151,10 +151,10 @@ border-radius:6rpx;
   /* text-indent: 16rpx; */
   padding-left:10rpx; 
   /*text-align: left;*/
-  width:230px;
+  width:190px;
 }
 .my-weui-cell__ft .my-input-code{
-  width:130px;
+  width:110px;
 
 }
 
@@ -168,7 +168,7 @@ border-radius:6rpx;
   min-height:1.4rem; 
   padding: 4rpx 0;
    /* padding: 6rpx 19rpx; */
-  width:90px;
+  width:80px;
   font-size:28rpx;
   background-color:#fff;
 
@@ -236,10 +236,10 @@ border-radius:6rpx;
     color: #000;
 }
 .my-seat-cell .my-input-seat{
-    width: 210px;
+    width: 150px;
 }
 .my-seat-cell .my-input-seat-code{
-    width: 112px;
+    width: 56px;
 }
 .seatRush-zone .my-cancel-seat{
     position: absolute;
@@ -250,4 +250,7 @@ border-radius:6rpx;
  .my-cancel-seat .my-cancel-img{
     width: 40rpx;
     height: 40rpx;
+}
+.seat-out{
+    filter: grayscale(100%);
 }

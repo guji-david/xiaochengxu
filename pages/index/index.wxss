@@ -8,8 +8,8 @@
 /*---------------------------------------搜索框样式 begin---------------------------*/
 .main-search{
   display: flex;
-  flex-direction: row;
-  margin:0 30rpx ;
+
+   margin:0 30rpx ;
   border-radius: 20rpx;
   border: 1px solid #e6e6ea;
 }

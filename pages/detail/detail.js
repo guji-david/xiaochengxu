@@ -1,5 +1,6 @@
 //index.js
 var util = require('../../utils/util.js');
+var api = require('../../utils/api.js');
 //获取应用实例
 var app = getApp()
 Page({
@@ -14,22 +15,28 @@ Page({
         id:'',
         price: 5,
         userInfo: {
-          
+
         },
-          totalPerson:'',//人数
-          totalPrice:'',//出价
-          code:'',//验证码
-          phone:'',//手机号
-          mark:'',//备注
-          getVerifyCodeText:'获取验证码',
-          count:6,
-          intervalId:'',
-          disabled:false,
-          desensPhone:'',
-          noticeMsg:'花钱省时间,支付成功后,你将可以随时消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
-          seatsdate:'',
-         seatRushVisable:true
-        
+        totalPerson:'',//人数
+        totalPrice:'',//出价
+        code:'',//验证码
+        phone:'',//手机号
+        mark:'',//备注
+        getVerifyCodeText:'获取验证码',
+        count:60,
+        intervalId:'',
+        disabled:false,
+
+        desensPhone:'',
+        noticeMsg:'花钱省时间,支付成功后,你将可以随时消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
+        seatsdate:'',
+        seatRushVisable:true,
+
+        seatDetail:'',
+        seatPhone:'',
+        seatCode:'',
+        seatDisabled:false
+
     },
     //toast 全局调用
     toastApply:function(msg){
@@ -71,9 +78,12 @@ Page({
     },
     //验证码 方法
     code: function (e) {
+
         if (!util.checkCode(e.detail.value)) {
             this.toastApply("请输入6位验证号");
             return;
+        }else{
+            // 调用获取验证码接口
         }
       var that = this;
       that.setData({
@@ -89,12 +99,12 @@ Page({
       })
     },
    
-    //电话沟通
-    bindMakePhoneCall:function(){
-      wx.makePhoneCall({
-        phoneNumber: '17316146229' 
-      })
-    },
+    // //电话沟通
+    // bindMakePhoneCall:function(){
+    //   wx.makePhoneCall({
+    //     phoneNumber: '17316146229'
+    //   })
+    // },
     
     //关闭抢座弹出框
     bindSeatPop: function () {
@@ -112,18 +122,21 @@ Page({
     },
     //发送验证码按钮--------------------------------------------------begin
     bindSendCodeTap: function () {
+
         if (!util.checkTel(this.data.phone)) {
             this.toastApply("请输入6位验证号");
             return;
+        }else{
+            //  调用验证码接口
         }
+
+
       this.disabled = true;
       this.setData({
         disabled: true
       })
       this.countDown();
-      this.setData({
-       
-      })
+
     },
     numInterval: function () {
       var that = this;
@@ -144,10 +157,7 @@ Page({
         that.setData({
           disabled: false
         })
-        // that.getVerifyCodeText = '获取验证码';
-        // that.getVerifyCodeDisabled = false;
-        // that.borderColor = "#ff9959";
-        // that.count = 60;
+
       }
     },
     countDown: function () { // 倒计时
@@ -165,9 +175,7 @@ Page({
 
     //确认抢座按钮
     bindSeatBtn:function () {
-        console.log(1111)
         if (!util.checkNum(this.data.totalPerson)) {
-            console.log(22222)
             this.toastApply("人数不能为空或超过100");
             return;
         }
@@ -244,16 +252,92 @@ Page({
             seatRushVisable:false,
         })
     },
-    //给他让座确定按钮
-    seatModaComfirmlBtn:function(){
-        this.setData({
-            seatRushVisable:true,
-        })
-    },
+
     //关闭让座弹出框
     bindGiveSeatPop: function () {
         this.setData({
             seatRushVisable:true
+        })
+    },
+    /*----------------------------- 让座信息 ---------------------------------*/
+    //座位信息，包厢名称
+    seatDetail: function (e) {
+        if (!e.detail.value){
+            this.toastApply("请输入正确的座位信息");
+            return;
+        }else if(e.detail.value.length>=50){
+            this.toastApply("您输入的长度过长");
+            return;
+        }
+        var that = this;
+        that.setData({
+            seatDetail: e.detail.value
+        })
+    },
+    //手机号 方法
+    seatPhone: function (e) {
+        if (!util.checkTel(e.detail.value)){
+            this.toastApply("请输入正确的手机号");
+        }
+        var that = this;
+        that.setData({
+            seatPhone: e.detail.value
+        })
+        util.setList('seatMobile', this.data.phone)
+    },
+
+    //验证码 方法
+    seatCode: function (e) {
+
+        if (!util.checkCode(e.detail.value)) {
+            this.toastApply("请输入6位验证号");
+            return;
+        }else{
+            // 调用获取验证码接口
+        }
+        var that = this;
+        that.setData({
+            code: e.detail.value
+        })
+    },
+
+    //发送验证码按钮
+    bindSeatSendCodeTap: function () {
+
+        if (!util.checkTel(this.data.phone)) {
+            this.toastApply("请输入6位验证号");
+            return;
+        }else{
+            //  调用验证码接口
+        }
+
+        this.setData({
+            seatDisabled: true
+        })
+        this.countDown();
+
+    },
+    //给他让座确定按钮
+    seatModaComfirmlBtn:function(){
+        if (!this.data.seatPhone){
+            this.toastApply("请输入正确的座位信息");
+            return;
+        }else if(this.data.seatPhone.length>=50){
+            this.toastApply("您输入的长度过长");
+            return;
+        }
+        if (!util.checkTel(this.data.seatPhone)) {
+            this.toastApply("请输入正确的手机号");
+            return;
+        }
+        if (!util.checkCode(this.data.seatCode)) {
+            this.toastApply("请输入6位验证号");
+            return;
+        }else{
+            // 调用获取验证码接口
+        }
+        this.setData({
+            seatRushVisable:true,
         })
     },
     onLoad: function (options) {

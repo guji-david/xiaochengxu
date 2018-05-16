@@ -2,49 +2,89 @@
 <import src="../../public/html/template.wxml" />
 <view class="page">
     <view wx:if="{{orederCancelVisable}}">
-        <view class="my-order-cells">
-            <view class="my-order-cell">
-                <view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>
-                <view class="my-weui-cell__ft">
-                    <text class="">等待接单</text>
-                </view>
-            </view>
-            <view class="my-order-cell">
-                <view class="my-weui-cell__bd">
-                    <view class="my-order-userInfo">
-                        <view class="my-userInfo-item">
-                            <view class="my-order-info-zone" >
-                                <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
-                                </image>
-                            </view>
-                            <view>
-                                {{userInfo.nickName}}
-                            </view>
-                            <view class="my-order-person">人数： <text>{{totalPerson}}</text></view>
-                        </view>
-                        <view class="my-userInfo-item">
-                            <view class="my-order-seat">
-                                让座可赚：￥{{totalPrice}}
-                            </view>
-                        </view>
-
+        <view >
+            <view class="my-order-cells">
+                <view class="my-order-cell">
+                    <view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>
+                    <view class="my-weui-cell__ft">
+                        <text class="">等待接单</text>
                     </view>
                 </view>
-                <view class="my-weui-cell__ft">
-                    <button
-                            class="weui-btn mini-btn"size=""type="default"
-                            bindtap="cancelOrder">取消</button>
+                <view class="my-order-cell">
+                    <view class="my-weui-cell__bd">
+                        <view class="my-order-userInfo">
+                            <view class="my-userInfo-item">
+                                <view class="my-order-info-zone" >
+                                    <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
+                                    </image>
+                                </view>
+                                <view>
+                                    {{userInfo.nickName}}
+                                </view>
+                                <view class="my-order-person">人数： <text>{{totalPerson}}</text></view>
+                            </view>
+                            <view class="my-userInfo-item">
+                                <view class="my-order-seat">
+                                    让座可赚：￥{{totalPrice}}
+                                </view>
+                            </view>
+
+                        </view>
+                    </view>
+                    <view class="my-weui-cell__ft">
+                        <button
+                                class="weui-btn mini-btn"size=""type="default"
+                                bindtap="cancelOrder">取消</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view >
+            <view class="my-order-cells">
+                <view class="my-order-cell">
+                    <view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>
+                    <view class="my-weui-cell__ft">
+                        <text class="">等待接单</text>
+                    </view>
+                </view>
+                <view class="my-order-cell">
+                    <view class="my-weui-cell__bd">
+                        <view class="my-order-userInfo">
+                            <view class="my-userInfo-item">
+                                <view class="my-order-info-zone" >
+                                    <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
+                                    </image>
+                                </view>
+                                <view>
+                                    {{userInfo.nickName}}
+                                </view>
+                                <view class="my-order-person">人数： <text>{{totalPerson}}</text></view>
+                            </view>
+                            <view class="my-userInfo-item">
+                                <view class="my-order-seat">
+                                    让座可赚：￥{{totalPrice}}
+                                </view>
+                            </view>
+
+                        </view>
+                    </view>
+                    <view class="my-weui-cell__ft">
+                        <button
+                                class="weui-btn mini-btn"size=""type="default"
+
+                                bindtap="seatModalBtn">给Ta让座</button>
+                    </view>
                 </view>
             </view>
         </view>
     </view>
-
     <view wx:if="{{orederSeatVisable}}">
-        <view class="my-order-cells">
+        <view class="my-order-cells seat-out">
             <view class="my-order-cell">
                 <view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>
                 <view class="my-weui-cell__ft">
-                    <text class="">等待接单</text>
+                    <text class="">抢座成功</text>
                 </view>
             </view>
             <view class="my-order-cell">
@@ -72,7 +112,7 @@
                     <button
                             class="weui-btn mini-btn"size=""type="default"
 
-                            bindtap="seatModalBtn">给他让座</button>
+                              >请上座</button>
                 </view>
             </view>
         </view>
@@ -125,9 +165,8 @@
                     <view class="my-weui-cell__ft">
                         <input class="my-input my-input-seat"
                                placeholder='座位信息，包厢名称'
-                               value="{{totalPerson}}"
-                               bindchange="totalPerson"
-                               maxlength="2"
+                               value="{{seatDetail}}"
+                               bindchange="seatDetail"
                                auto-focus
                         ></input>
                     </view>
@@ -140,8 +179,8 @@
                     <view class="my-weui-cell__ft">
                         <input class="my-input my-input-seat"
                                placeholder='请输入正确的手机号'
-                               value="{{phone}}"
-                               bindchange="phone"
+                               value="{{seatPhone}}"
+                               bindchange="seatPhone"
                                maxlength="11"
                         >
                         </input>
@@ -152,16 +191,16 @@
                     <view class="my-weui-cell__ft">
                         <view>
                             <input class="my-input my-input-seat-code"
-                                   placeholder='请输入验证码'
-                                   bindchange="code"
-                                   value="{{code}}"
+                                   placeholder='验证码'
+                                   bindchange="seatCode"
+                                   value="{{seatCode}}"
                                    maxlength="6"
                             >
                             </input>
                         </view>
                         <button
                                 class="my-btn"
-                                bindtap="bindSendCodeTap"  disabled="{{disabled}}" >{{getVerifyCodeText}}</button>
+                                bindtap="bindSeatSendCodeTap"  disabled="{{seatDisabled}}" >{{getVerifyCodeText}}</button>
                     </view>
                 </view>
         </view>

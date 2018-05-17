@@ -23,9 +23,9 @@ align-items:center;
 }
 .order-comon .order-comon-before{
   -webkit-box-flex:1;
--webkit-flex:1;
-flex:1;
--webkit-box-align:start;
+ -webkit-flex:1;
+ flex:1;
+ -webkit-box-align:start;
 -webkit-align-items:flex-start;
 align-items:flex-start;
 
@@ -79,4 +79,14 @@ color:#999;
 }
 .order-num{
   border-top:1rpx solid #F8F8F8 ;
+}
+.order-comon-before .order-comon-time{
+    color:#FF7081 ;
+    line-height:2.0;
+    font-size:12px;
+}
+.order-comon-end .my-weui-btn{
+   margin-left: 10rpx;
+    line-height:2.0;
+    font-size:12px;
 }

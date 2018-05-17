@@ -239,7 +239,7 @@ border-radius:6rpx;
     width: 150px;
 }
 .my-seat-cell .my-input-seat-code{
-    width: 56px;
+    width: 66px;
 }
 .seatRush-zone .my-cancel-seat{
     position: absolute;

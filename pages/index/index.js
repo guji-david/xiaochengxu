@@ -31,28 +31,20 @@ Page({
     bindCasPickerChange: function (e) {
 
         this.setData({casIndex: e.detail.value })
-        console.log(this.data.casIndex);
-        /*if (e.detail.value == 4) {
-            this.setData({ reply: true })
-        } else {
-            this.setData({ reply: false })   }*/
+
               },
     searchNameInput:function (e) {
         wx.navigateTo({
             url: '/pages/search/search'
         })
-        console.log(e.detail.value);
     },
     //事件处理函数
     bindViewTap: function (event) {
       //获取数据详情所有内容；
-      console.log(event)
       //获取数据绑定的data- 所有的数据
-      console.log(event.currentTarget.dataset.id);
       let title= event.currentTarget.dataset.title;
       
       //获取数据所有的id
-      console.log(event.currentTarget.id);
         wx.navigateTo({
           url: '../detail/detail?title='+title
         })
@@ -68,7 +60,6 @@ Page({
       
     },
     onLoad: function (options) {
-     
 
         var that = this;
         //调用应用实例的方法获取全局数据
@@ -78,17 +69,6 @@ Page({
                 userInfo:userInfo
             })
         })
-        /* wx.showModal({
-         title: '提示',
-         content: '模态弹窗',
-         success: function (res) {
-         if (res.confirm) {
-         console.log('用户点击确定')
-         }else{
-         console.log('用户点击取消')
-         }
 
-         }
-         })*/
     }
 })

@@ -9,6 +9,7 @@ Page({
         getVerifyCodeText: '获取验证码',
         count: 60,
         intervalId: '',
+        mobile:'',
         disabled: false,
         code: '',//验证码
         phone:'',//手机号
@@ -129,7 +130,9 @@ Page({
     } ,
 
     onLoad: function () {
-    
+        this.setData({
+            mobile: util.desensitization(util.getList('mobile'))
+        })
         var that = this;
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function(userInfo){

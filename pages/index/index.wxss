@@ -89,7 +89,8 @@ text-indent: 10rpx;
 background: #fff;
 }
 .main-item-up-zone{
-  margin-left:30rpx; 
+  padding-left:30rpx;
+    border-bottom: 1px solid #e6e6ea;
 }
 .main-item-up{
   display:-webkit-box;
@@ -101,7 +102,7 @@ background: #fff;
   padding:30rpx 0;
 position:relative;
 
-border-bottom: 1px solid #e6e6ea;
+
 
 }
 .main-item-up .main-item-img-zone{

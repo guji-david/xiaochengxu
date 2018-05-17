@@ -125,7 +125,7 @@
     <template is="toast" data="{{toastText,isShowToast}}"></template>
 
     <!--------------------------------------------------------取消订单弹出框----------------------------------- -->
-    <modal hidden="{{orderModalVisable}}"
+    <modal hidden="{{orderVisableModal}}"
            title="取消提示"
            confirm-text="确定"
            bindconfirm="orderModalConfirm"
@@ -145,10 +145,10 @@
     </modal>
 
     <!----------------------------------------------让座页面-----------------------------------------------------------  -->
-    <modal hidden="{{seatRushVisable}}"
+    <modal hidden="{{seatVisableModal}}"
            title="让座信息"
-           confirm-text="确定"
-           bindconfirm="seatModaComfirmlBtn"
+           confirm-text="确定让座"
+           bindconfirm="seatModaComfirmBtn"
             no-cancel
     >
 
@@ -203,6 +203,31 @@
                                 bindtap="bindSeatSendCodeTap"  disabled="{{seatDisabled}}" >{{getVerifyCodeText}}</button>
                     </view>
                 </view>
+        </view>
+
+
+
+
+
+
+
+
+    </modal>
+
+    <!----------------------------------------------座位成功之后 提示-----------------------------------------------------------  -->
+    <modal hidden="{{seatSuccessModal}}"
+           title="成功"
+           confirm-text="快去联系对方"
+           bindconfirm="seatSuccessModalBtn"
+           no-cancel
+    >
+
+        <view class="seatRush-zone">
+            <view>
+                
+            </view>
+
+         
         </view>
 
 

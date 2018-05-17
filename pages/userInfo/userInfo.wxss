@@ -93,10 +93,10 @@ border-radius:6rpx;
  
   /* padding-left:10rpx; 
   text-align: left; */
-  width:195px;
+  width:160px;
 }
 .my-weui-cell__ft .my-input-code{
-  width:100px;
+  width:67px;
 
 } 
 .my-weui-cell__ft .my-btn{

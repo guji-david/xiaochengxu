@@ -8,7 +8,6 @@ Page({
         maskVisable:false,
         seatGiveVisable:false,
         payVisable:false,
-        orderModalVisable:true,
         orederCancelVisable:false,
         orederSeatVisable:false,
         title:'',
@@ -30,8 +29,9 @@ Page({
         desensPhone:'',
         noticeMsg:'花钱省时间,支付成功后,你将可以随时消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
         seatsdate:'',
-        seatRushVisable:true,
-
+        orderVisableModal:true,
+        seatVisableModal:true,
+        seatSuccessModal:true,
         seatDetail:'',
         seatPhone:'',
         seatCode:'',
@@ -228,14 +228,14 @@ Page({
     //取消订单
     cancelOrder:function(){
         this.setData({
-            orderModalVisable:false
+            orderVisableModal:false
         })
     },
     //弹出框确认按钮
     orderModalConfirm:function () {
     //    调用微信退换支付接口
         this.setData({
-            orderModalVisable:true,
+            orderVisableModal:true,
             orederCancelVisable:false,
             orederSeatVisable:true,
         })
@@ -243,20 +243,20 @@ Page({
     //弹出框取消按钮
     orderModalCancel:function(){
         this.setData({
-            orderModalVisable:true,
+            orderVisableModal:true,
         })
     },
     //给他让座按钮
     seatModalBtn:function(){
         this.setData({
-            seatRushVisable:false,
+            seatVisableModal:false,
         })
     },
 
     //关闭让座弹出框
     bindGiveSeatPop: function () {
         this.setData({
-            seatRushVisable:true
+            seatVisableModal:true
         })
     },
     /*----------------------------- 让座信息 ---------------------------------*/
@@ -288,7 +288,6 @@ Page({
 
     //验证码 方法
     seatCode: function (e) {
-
         if (!util.checkCode(e.detail.value)) {
             this.toastApply("请输入6位验证号");
             return;
@@ -297,7 +296,7 @@ Page({
         }
         var that = this;
         that.setData({
-            code: e.detail.value
+            seatCode: e.detail.value
         })
     },
 
@@ -318,7 +317,7 @@ Page({
 
     },
     //给他让座确定按钮
-    seatModaComfirmlBtn:function(){
+    seatModaComfirmBtn:function(){
         if (!this.data.seatPhone){
             this.toastApply("请输入正确的座位信息");
             return;
@@ -331,18 +330,28 @@ Page({
             return;
         }
         if (!util.checkCode(this.data.seatCode)) {
-            this.toastApply("请输入6位验证号");
+            this.toastApply("请输入6位验证号！！");
             return;
         }else{
             // 调用获取验证码接口
         }
         this.setData({
-            seatRushVisable:true,
+            seatVisableModal:true,
+            seatSuccessModal:false,
+        })
+    },
+    //座位互换成功之后 通知
+    seatSuccessModalBtn:function () {
+        this.setData({
+            seatSuccessModal:true,
         })
     },
     onLoad: function (options) {
+        wx.setNavigationBarTitle({
+            title: options.title
+        })
         this.setData({
-            // seatRushVisable:false
+            // seatVisableModal:false
           maskVisable: true,
           seatGiveVisable: true
         })

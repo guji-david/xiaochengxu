@@ -302,7 +302,7 @@
                  </view>
                   <view class="my-weui-cell__ft">
                        <input class="my-input my-input-tel"
-                            placeholder='请输入真实号码，以便进行电话沟通'
+                            placeholder='请输入号码，以便进行电话沟通'
                             value="{{phone}}"
                             bindchange="phone"
                             maxlength="11"

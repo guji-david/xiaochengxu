@@ -124,7 +124,7 @@ Page({
     bindSendCodeTap: function () {
 
         if (!util.checkTel(this.data.phone)) {
-            this.toastApply("请输入6位验证号");
+            this.toastApply("请输入正确的手机号");
             return;
         }else{
             //  调用验证码接口
@@ -135,14 +135,15 @@ Page({
       this.setData({
         disabled: true
       })
-      this.countDown();
+      this.countDown(0);
 
     },
-    numInterval: function () {
+    numInterval: function (type) {
+        console.log(type)
       var that = this;
-      that.setData({
-        getVerifyCodeText: that.data.count + '秒后重发'
-      })
+      // that.setData({
+      //   getVerifyCodeText: that.data.count + '秒后重发'
+      // })
 
     
       that.data.count--;
@@ -160,11 +161,11 @@ Page({
 
       }
     },
-    countDown: function () { // 倒计时
+    countDown: function (type) { // 倒计时
       var that = this;
       that.setData({
         intervalId: setInterval(function () {
-          that.numInterval();
+          that.numInterval(type);
         }, 1000)
       })
 
@@ -303,7 +304,7 @@ Page({
     //发送验证码按钮
     bindSeatSendCodeTap: function () {
 
-        if (!util.checkTel(this.data.phone)) {
+        if (!util.checkTel(this.data.seatPhone)) {
             this.toastApply("请输入6位验证号");
             return;
         }else{
@@ -313,7 +314,7 @@ Page({
         this.setData({
             seatDisabled: true
         })
-        this.countDown();
+        this.countDown(1);
 
     },
     //给他让座确定按钮

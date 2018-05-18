@@ -41,7 +41,7 @@
     font-size:32rpx;
     margin: 10rpx 0;
     font-weight:600;
-    color:#FF495F;
+    color:#F55231;
 }
 
 
@@ -170,6 +170,7 @@ border-radius:6rpx;
    /* padding: 6rpx 19rpx; */
   width:80px;
   font-size:28rpx;
+  color:#4A90E2;
   background-color:#fff;
 
 }
@@ -206,7 +207,7 @@ border-radius:6rpx;
     font-size:36rpx;
     margin-right:8rpx;
     font-weight:600;
-    color:#FF495F;
+    color:#F55231;
 }
 .my-weui-cell__ft .my-pay-phone{
     font-size:36rpx;
@@ -215,7 +216,7 @@ border-radius:6rpx;
     color:rgba(0,0,0,0.4);
 }
 .my-weui-cell .my-notice{
-    color:#FF495F;
+    color:#F55231;
     font-weight:bold ;
 }
 /*----------------------------------------- 让座信息样式----------------------------------------*/

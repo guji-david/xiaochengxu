@@ -56,18 +56,18 @@ function checkCode(code) {
   return code && reg.test(code);
 }
 //检查数字
-export function checkNum(num) {
+ function checkNum(num) {
     var reg =/^(\d{0,10})$/;
     return num && reg.test(num);
 }
 //--------------------------------------------------------------------window.sessionStorage 保存对象
 //保存开户行手机号
-export function setMobile(key,value){
+ function setMobile(key,value){
 
     wx.setStorageSync(key,value)
 }
 //获取开户行手机号
-export function getMobile(key){
+ function getMobile(key){
     return   wx.getStorageSync(key)
 }
 

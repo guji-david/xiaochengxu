@@ -131,7 +131,7 @@ Page({
 
     onLoad: function () {
         this.setData({
-            mobile: util.desensitization(util.getList('mobile'))
+            mobile: util.desensitization(util.getMobile('mobile'))
         })
         var that = this;
         //调用应用实例的方法获取全局数据

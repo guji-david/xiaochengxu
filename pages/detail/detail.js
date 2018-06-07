@@ -74,7 +74,7 @@ Page({
         that.setData({
             phone: e.detail.value
         })
-        util.setList('mobile', this.data.phone)
+        util.setMobile('mobile', this.data.phone)
     },
     //验证码 方法
     code: function (e) {
@@ -139,7 +139,6 @@ Page({
 
     },
     numInterval: function (type) {
-        console.log(type)
       var that = this;
       // that.setData({
       //   getVerifyCodeText: that.data.count + '秒后重发'

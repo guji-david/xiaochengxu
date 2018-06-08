@@ -1,77 +1,70 @@
-   
+
 <view class="page">
   <view class="main">
-  
+
     <view class="main-search">
-    <view class="main-picker-zone">
-      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{zoneList}}">
-        <view>
-          <text>{{zoneList[casIndex]}}</text>
+      <view class="main-city-zone">
+        <!--<picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{zoneList}}">-->
+          <!--<view>-->
+            <!--<text>{{zoneList[casIndex]}}</text>-->
+          <!--</view>-->
+        <!--</picker>-->
+        <input class="main-input"value="{{inputVal}}" name="inputVal" placeholder="北京北京"
+               bindfocus="searchNameInput"/>
+        <view class="main-city-arrow"  >
+          <view class="main-city-triangle" >
+          </view>
         </view>
-      </picker>
-      <view class="main-picker-arrow"  >
-        <view class="bottom" >
-          <!--class="{{arrowToggle? 'picker-arrow-animation':''}}"-->
-          <text class="bottom-arrow1"></text>
-          <text class="bottom-arrow2"></text>
-        </view>
+
       </view>
-
-    </view>
-    <view class="main-input-zone">
-      <!-- <image class="main-input-img" src="/static/img/search.png" mode="">
-      </image> -->
-      <icon class="weui-icon-search my-weui-icon-search"size="14"type="search"></icon>
-      <input class="main-input"value="{{inputVal}}" name="inputVal" placeholder="餐厅名称，区域名称"
-             bindfocus="searchNameInput"/>
+      <view class="main-hotel-zone">
+        <icon class="weui-icon-search my-weui-icon-search"size="14"type="search"></icon>
+        <input class="main-input"value="{{inputVal}}" name="inputVal" placeholder="餐厅名称，区域名称"
+               bindfocus="searchNameInput"/>
+      </view>
     </view>
 
+  </view>
 
 
-  
-  </view>
-  
-  </view>
-  
- 
   <view class="main-list">
     <view class="main-list-zone" wx:for="{{menus}}" wx:for-item="item" wx:key="menus">
       <view class="main-item-up-zone">
-      <view class="main-item-up">
-      
-        <view class="main-item-img-zone">
-          <image class="main-item-img" src="{{item.logo}}" mode="">
-          </image>
-        </view>
-        <view class="main-item-context">
-          <view class="item-contxt-title"><text>{{item.title}}</text></view>
-          <view class="item-contxt-level">
-            <view  class="contxt-level-star"  wx:for="{{item.scores}}" wx:for-item="score" wx:key="item.scores">
-              <image class="star-img" src="/static/img/active.png" mode=""></image>
-            </view>
-            <view  class="contxt-level-star"  wx:for="{{5-item.scores}}" wx:for-item="score" wx:key="item.scores">
-              <image class="star-img" src="/static/img/hiden.png" mode=""> </image>
-            </view>
-            <view class="item-contxt-scores">{{item.scores}}.0 分</view>
-            <view class="item-contxt-type">{{item.type}}</view>
-          </view>
-          <view class="item-contxt-priceAndPrice">
-            <text class="item-contxt-price">人均￥{{item.price}}</text>
-            <text class="item-contxt-distance">距离 {{char_lt}}{{item.distance}}公里</text>
-          </view>
+        <view class="main-item-up">
 
-        </view>
-         <view class="main-item-btn-zone">
-            <button 
-               class="weui-btn mini-btn"size="mini"type="default"
-                data-id="{{item.id}}" 
-            data-title="{{item.title}}"
-            bindtap="bindViewTap">抢座</button>
-         <!-- <view class="main-item-btn" 
-            data-id="{{item.id}}" 
-            data-title="{{item.title}}"
-            bindtap="bindViewTap">抢座</view>  -->
-        </view> 
+          <view class="main-item-img-zone">
+            <image class="main-item-img" src="{{item.logo}}" mode="">
+            </image>
+          </view>
+          <view class="main-item-context">
+            <view class="item-contxt-title"><text>{{item.title}}</text></view>
+            <view class="item-contxt-level">
+              <view  class="contxt-level-star"  wx:for="{{item.scores}}" wx:for-item="score" wx:key="item.scores">
+                <image class="star-img" src="/static/img/active.png" mode=""></image>
+              </view>
+              <view  class="contxt-level-star"  wx:for="{{5-item.scores}}" wx:for-item="score" wx:key="item.scores">
+                <image class="star-img" src="/static/img/hiden.png" mode=""> </image>
+              </view>
+              <view class="item-contxt-scores">{{item.scores}}.0 分</view>
+              <view class="item-contxt-type">{{item.type}}</view>
+            </view>
+            <view class="item-contxt-priceAndPrice">
+              <text class="item-contxt-price">人均￥{{item.price}}</text>
+              <text class="item-contxt-distance">距离 {{char_lt}}{{item.distance}}公里</text>
+            </view>
+
+          </view>
+          <view class="main-item-btn-zone">
+            <button
+                    class="weui-btn mini-btn"size="mini"type="default"
+                    data-id="{{item.id}}"
+                    data-title="{{item.title}}"
+                    bindtap="bindViewTap">抢座</button>
+            <!-- <view class="main-item-btn"
+               data-id="{{item.id}}"
+               data-title="{{item.title}}"
+               bindtap="bindViewTap">抢座</view>  -->
+          </view>
         </view>
       </view>
       <view class="main-item-down">
@@ -79,7 +72,7 @@
       </view>
 
     </view>
-  </view> 
+  </view>
 
 
 

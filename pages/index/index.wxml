@@ -37,33 +37,37 @@
             </image>
           </view>
           <view class="main-item-context">
-            <view class="item-contxt-title"><text>{{item.title}}</text></view>
-            <view class="item-contxt-level">
-              <view  class="contxt-level-star"  wx:for="{{item.scores}}" wx:for-item="score" wx:key="item.scores">
-                <image class="star-img" src="/static/img/active.png" mode=""></image>
+            <view class="main-item-context-up">
+              <view class="item-contxt-title"><text>{{item.title}}</text></view>
+              <view class="item-contxt-level">
+                <view  class="contxt-level-star"  wx:for="{{item.scores}}" wx:for-item="score" wx:key="item.scores">
+                  <image class="star-img" src="/static/img/active.png" mode=""></image>
+                </view>
+                <view  class="contxt-level-star"  wx:for="{{5-item.scores}}" wx:for-item="score" wx:key="item.scores">
+                  <image class="star-img" src="/static/img/hiden.png" mode=""> </image>
+                </view>
+                <view class="item-contxt-scores">{{item.scores}}.0 分</view>
+                <view class="item-contxt-type">{{item.type}}</view>
               </view>
-              <view  class="contxt-level-star"  wx:for="{{5-item.scores}}" wx:for-item="score" wx:key="item.scores">
-                <image class="star-img" src="/static/img/hiden.png" mode=""> </image>
+              <view class="item-contxt-priceAndPrice">
+                <text class="item-contxt-price">人均￥{{item.price}}</text>
+                <text class="item-contxt-distance">距离 {{char_lt}}{{item.distance}}公里</text>
               </view>
-              <view class="item-contxt-scores">{{item.scores}}.0 分</view>
-              <view class="item-contxt-type">{{item.type}}</view>
             </view>
-            <view class="item-contxt-priceAndPrice">
-              <text class="item-contxt-price">人均￥{{item.price}}</text>
-              <text class="item-contxt-distance">距离 {{char_lt}}{{item.distance}}公里</text>
-            </view>
+
+
 
           </view>
           <view class="main-item-btn-zone">
-            <button
-                    class="weui-btn mini-btn"size="mini"type="default"
-                    data-id="{{item.id}}"
-                    data-title="{{item.title}}"
-                    bindtap="bindViewTap">抢座</button>
-            <!-- <view class="main-item-btn"
+            <!--<button-->
+                    <!--class="weui-btn mini-btn"size="mini"type="default"-->
+                    <!--data-id="{{item.id}}"-->
+                    <!--data-title="{{item.title}}"-->
+                    <!--bindtap="bindViewTap">抢座</button>-->
+             <view class="main-item-btn"
                data-id="{{item.id}}"
                data-title="{{item.title}}"
-               bindtap="bindViewTap">抢座</view>  -->
+               bindtap="bindViewTap">抢座</view>
           </view>
         </view>
       </view>

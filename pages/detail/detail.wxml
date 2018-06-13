@@ -248,32 +248,18 @@
 <view class="actionSheet-layer" wx:if="{{seatGiveVisable}}" >
     <view class="seat-zone">
         <view class="my-weui-cells">
-            <view class="my-weui-cell">
+            <view class="my-weui-cell my-weui-cell_noline">
                  <view class="my-weui-cell__bd">
                  <view class="my-cancel" bindtap="bindSeatPop">
                    
                      <image class="my-cancel-img" src="/static/img/close.png" >
                          </image>
                  </view>
-                   <view class="my-title"> 我要抢座</view>
+                   <view class="my-head-title"> <text class="my-title">我要抢座</text>{{title}}</view>
                 </view>
                 
             </view>
-            <view class="my-weui-cell">
-                 <view class="my-weui-cell__bd">
-                    <view class="my-userInfo">
-                           <view class="my-order-info-zone" >
-                                 <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
-                                 </image>
-                             </view>
-                            <view>
-                               {{userInfo.nickName}}
-                             </view>
-                    </view>
-                 </view>
-                
-            </view>
-            
+
              <view class="my-weui-cell">
                  <view class="my-weui-cell__bd">人数</view>
                  <view class="my-weui-cell__ft">
@@ -296,13 +282,11 @@
                  </view>
             </view>
              <view class="my-weui-cell">
-                 <view class="my-weui-cell__bd">手
-                   <text class="hid">1</text>机 
-                 <text class="hid">2</text>号
+                 <view class="my-weui-cell__bd">手机号
                  </view>
                   <view class="my-weui-cell__ft">
                        <input class="my-input my-input-tel"
-                            placeholder='请输入号码，以便进行电话沟通'
+                              placeholder='请输入正确的手机号'
                             value="{{phone}}"
                             bindchange="phone"
                             maxlength="11"
@@ -323,10 +307,16 @@
                        >
                        </input>
                     </view>
-                     <button 
+                     <view
                class="my-btn"
-               bindtap="bindSendCodeTap"  disabled="{{disabled}}" >{{getVerifyCodeText}}</button> <text class="hid">元</text>
+               bindtap="bindSendCodeTap"  disabled="{{disabled}}" >{{getVerifyCodeText}}</view>
                  </view>
+            </view>
+            <view class="my-weui-cell my-weui-cell_noline">
+                <view class="my-weui-cell__bd">备注</view>
+                <view class="my-weui-cell__ft">
+                    选填
+                </view>
             </view>
               <view class="my-weui-cell">
               <view class="my-weui-textarea-zone">
@@ -351,31 +341,17 @@
 <view class="actionSheet-layer" wx:if="{{payVisable}}" >
     <view class="seat-zone">
         <view class="my-weui-cells">
-            <view class="my-weui-cell">
+            <view class="my-weui-cell my-weui-cell_noline">
                  <view class="my-weui-cell__bd">
                  <view class="my-cancel" bindtap="bindParPop">
                      <image class="my-cancel-img" src="/static/img/back.png" >
                          </image>
                  </view>
-                   <view class="my-title"> 支付</view>
+                     <view class="my-head-title"> <text class="my-title">我要支付</text>{{title}}</view>
                 </view>
                 
             </view>
-            <view class="my-weui-cell">
-                 <view class="my-weui-cell__bd">
-                    <view class="my-userInfo">
-                           <view class="my-order-info-zone" >
-                                 <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
-                                 </image>
-                             </view>
-                              <view style="margin-left: 15rpx;">
-                               {{userInfo.nickName}}
-                             </view>
-                    </view>
-                 </view>
-                
-            </view>
-            
+
              <view class="my-weui-cell">
                  <view class="my-weui-cell__bd">人数</view>
                  <view class="my-weui-cell__ft">
@@ -396,6 +372,15 @@
                       </view>
 
                  </view>
+            </view>
+            <view class="my-weui-cell">
+                <view class="my-weui-cell__bd">备注</view>
+                <view class="my-weui-cell__ft">
+                    <view class="my-pay-phone">
+                        {{mark}}
+                    </view>
+
+                </view>
             </view>
 
             <view class="my-weui-cell">

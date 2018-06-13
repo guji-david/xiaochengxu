@@ -1,11 +1,12 @@
 /**
  * Created by David on 2018/5/16.
  */
-const host=":http://youzuoer.com";
+const HOST=":http://youzuoer.com";
+const APPID="wxfc7cd0d2cd47431f";
 function postRequest(action, obj, successFun,errorFun) {
     let JSONobj=JSON.stringify(obj)
     wx.request({
-        url: host+action, //仅为示例，并非真实的接口地址
+        url: HOST+action, //仅为示例，并非真实的接口地址
         data:JSONobj,
         method: 'POST',
         header: {
@@ -26,5 +27,6 @@ function postRequest(action, obj, successFun,errorFun) {
 }
 
 module.exports = {
-    postRequest:postRequest
+    postRequest:postRequest,
+    APPID:APPID,
 }

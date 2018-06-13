@@ -13,21 +13,19 @@ Page({
         title:'',
         id:'',
         price: 5,
-        userInfo: {
 
-        },
         totalPerson:'',//人数
         totalPrice:'',//出价
         code:'',//验证码
         phone:'',//手机号
         mark:'',//备注
-        getVerifyCodeText:'获取验证码',
+        getVerifyCodeText:'发送验证码',
         count:60,
         intervalId:'',
         disabled:false,
 
         desensPhone:'',
-        noticeMsg:'花钱省时间,支付成功后,你将可以随时消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
+        noticeMsg:'花钱省时间,支付成功后,你将可以随时取消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
         seatsdate:'',
         orderVisableModal:true,
         seatVisableModal:true,
@@ -140,16 +138,16 @@ Page({
     },
     numInterval: function (type) {
       var that = this;
-      // that.setData({
-      //   getVerifyCodeText: that.data.count + '秒后重发'
-      // })
+      that.setData({
+        getVerifyCodeText: that.data.count + '秒后重发'
+      })
 
     
       that.data.count--;
       if (that.data.count <= 0) {
         clearInterval(that.data.intervalId);
         that.setData({
-          getVerifyCodeText: '获取验证码'
+          getVerifyCodeText: '发送验证码'
         })
         that.setData({
           count:60
@@ -161,6 +159,7 @@ Page({
       }
     },
     countDown: function (type) { // 倒计时
+
       var that = this;
       that.setData({
         intervalId: setInterval(function () {
@@ -200,27 +199,29 @@ Page({
     },
     //确认支付按钮
     bindPayBtn: function () {
-      this.setData({
-        maskVisable: false,
-        payVisable: false,
-
-      })
+        this.setData({
+            maskVisable: false,
+            payVisable: false,
+            seatsdate:util.formatTime(new Date()),
+        })
       //  调用微信接口
       wx.requestPayment(
         {
-          'timeStamp': '',
+          'timeStamp': new Date().getTime(),
           'nonceStr': '',
-          'package': '',
+          'package': 'prepay_id=wx2017033010242291fcfe0db70013231072',
           'signType': 'MD5',
           'paySign': '',
-          'success': function (res) { },
+          'success': function (res) {
+              console.log(res)
+          },
           'fail': function (res) { },
           'complete': function (res) { }
         }) 
     // 设置抢座时间
         this.setData({
             seatsdate:util.formatTime(new Date()),
-            orederCancelVisable:true
+            // orederCancelVisable:true
         })
 
 
@@ -357,12 +358,6 @@ Page({
         })
         var that = this;
 
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function(userInfo){
-            //更新数据
-            that.setData({
-                userInfo:userInfo
-            })
-        })
+
     }
 })

@@ -4,15 +4,8 @@ var app = getApp()
 Page({
     data: {
         zoneList: ['北京', '上海', '天津', '山西', '四川'],
-        inputVal:'',
-       /* zoneList: [
-            {key:'beijing',value:'北京'},
-            {key:'shagnhai',value:'上海'},
-            {key:'tianjin',value:'天津'},
-            {key:'shangxi',value:'山西'},
-            {key:'sichuan',value:'四川'},
-        ],*/
-        casIndex:2,
+        inputValZone:'',//
+        inputValShop:'',
         char_lt:'<',//小于号
         menus:[
             {id:0,logo:'/static/img/logo.png',title:'丰茂烧烤11',scores:1,type:'烧烤1',price:'15',distance:'10',num:'2000'},
@@ -22,20 +15,10 @@ Page({
             {id:4,logo:'/static/img/logo.png',title:'丰茂烧烤44',scores:5,type:'烧烤5',price:'55',distance:'50',num:'6000'},
         ]
     },
-    //箭头反转事件
-    bindViewPicker:function () {
-        this.setData({    arrowToggle: !this.data.arrowToggle   })
-
-    },
-    // 生命周期函数--监听页面加载
-    bindCasPickerChange: function (e) {
-
-        this.setData({casIndex: e.detail.value })
-
-              },
-    searchNameInput:function (e) {
+    searchInput:function (event) {
+        // console.log(event.type)
         wx.navigateTo({
-            url: '/pages/search/search'
+            url: '/pages/search/search?type='+event.currentTarget.dataset.type
         })
     },
     //事件处理函数
@@ -54,7 +37,7 @@ Page({
       let currPage = pages[pages.length - 1];
 
       this.setData({//将携带的参数赋值
-        inputVal: currPage.data.inputVal
+          // inputValShop: currPage.data.inputVal
       });
      
       

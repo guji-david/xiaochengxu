@@ -8,92 +8,89 @@
       </image>
       <view class="user-info-text"  >
         <view>{{userInfo.nickName}}</view>
-        <view>{{userInfo.gender != 1 ? '女' : '男'}}</view>
+        <!--<view>{{userInfo.gender != 1 ? '女' : '男'}}</view>-->
       </view>
 
     </view>
   </view>
-   
 
- <view class="weui-cell weui-cell_access my-weui-cell_access"hover-class="weui-cell_active" bindtap="modalinput">
-                            <view class="weui-cell__hd"><image src="/static/img/tel.png" style="width: 20px;height: 20px;margin-top:5px;margin-right: 5px" /></view>
-                            <view class="weui-cell__bd weui-cell_primary">
-                                <view>手机号</view>
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access">
-                            {{mobile}}
-                            </view>
+    <view class="user-tel">
+        <view class="my-weui-cell "bindtap="modalinput">
+            <!--<view class="weui-cell__hd"></view>-->
+            <view class="weui-cell__bd weui-cell_primary">
+                <image src="/static/img/tel.png" style="width: 16px;height: 16px;margin-right: 5px" />
+                <view>手机号</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+                {{mobile}}
+            </view>
+        </view>
+    </view>
+
+
+
+
+
+
+
+    <view class="actionSheet-layer" wx:if="{{hiddenmodalput}}" >
+        <view class="seat-zone">
+            <view class="my-weui-cells">
+                <view class="my-weui-cell my-weui-cell_noline">
+                    <view class="my-weui-cell__bd">
+                        <view class="my-cancel" bindtap="cancel">
+
+                            <image class="my-cancel-img" src="/static/img/close.png" >
+                            </image>
                         </view>
-
-
-
-
-
- <modal hidden="{{hiddenmodalput}}" title="手机号绑定" no-cancel= "true" confirm-text="确定"  bindconfirm="confirm">  
-   
-       <view class="my-weui-cells">
-
-         
-                 
-                 <view class="my-cancel" bindtap="cancel">
-                   
-                     <image class="my-cancel-img" src="/static/img/close.png" >
-                         </image>
-                 </view>
-                
-              
-           
-           <view class="my-weui-cell">
-                 <view class="my-weui-cell__bd">手 
-                 <text class="hid">1</text>机 
-                 <text class="hid">2</text>号</view>
-                  <view class="my-weui-cell__ft">
-                       <input class="my-input my-input-tel"
-                            placeholder='请输入真实的手机号码'
-                            value="{{phone}}"
-                            bindchange="phone"
-                            maxlength="11"
-                       >
-                       </input>
-                    
-                 </view>
-            </view>
-
-
-           <view class="my-weui-cell">
-                 <view class="my-weui-cell__bd">短信验证码</view>
-                 <view class="my-weui-cell__ft">
-                    <view>
-                         <input class="my-input my-input-code"
-                             placeholder='验证码'
-                             bindchange="code"
-                             value="{{code}}"
-                              maxlength="6"
-                       >
-                       </input>
+                        <view class="my-head-title"> <text class="my-title">手机号绑定</text></view>
                     </view>
-                     <button 
-               class="my-btn"
-               bindtap="bindSendCodeTap"  disabled="{{disabled}}" >{{getVerifyCodeText}}</button> 
-                 </view>
+
+                </view>
+
+                <view class="my-weui-cell">
+                    <view class="my-weui-cell__bd">手机号
+                    </view>
+                    <view class="my-weui-cell__ft">
+                        <input class="my-input my-input-tel"
+                               placeholder='请输入正确的手机号'
+                               value="{{phone}}"
+                               bindchange="phone"
+                               maxlength="11"
+                        >
+                        </input>
+
+                    </view>
+                </view>
+                <view class="my-weui-cell">
+                    <view class="my-weui-cell__bd">短信验证码</view>
+                    <view class="my-weui-cell__ft">
+                        <view>
+                            <input class="my-input my-input-code"
+                                   placeholder='请输入验证码'
+                                   bindchange="code"
+                                   value="{{code}}"
+                                   maxlength="6"
+                            >
+                            </input>
+                        </view>
+                        <view
+                                class="my-btn"
+                                bindtap="bindSendCodeTap"  disabled="{{disabled}}" >{{getVerifyCodeText}}</view>
+                    </view>
+                </view>
+                <view class="my-button-zone" bindtap="confirm">
+                    <view class="my-button-confirm"> 确认</view>
+
+                </view>
             </view>
-
-
-
-
-       </view>
-   
-
-      
-
-
-
-
-
-</modal>
+        </view>
+    </view>
 
     <template is="toast" data="{{toastText,isShowToast}}"></template>
 
+    <!--------------------------------------------------------遮罩层----------------------------------- -->
+    <view class="cover" wx:if="{{maskVisable}}" > </view>
 
 </view>
 

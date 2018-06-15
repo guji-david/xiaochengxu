@@ -28,7 +28,7 @@ Page({
         noticeMsg:'花钱省时间,支付成功后,你将可以随时取消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
         seatsdate:'',
         orderVisableModal:true,
-        seatVisableModal:true,
+        offSeatVisable:true,
         seatSuccessModal:true,
         seatDetail:'',
         seatPhone:'',
@@ -205,23 +205,23 @@ Page({
             seatsdate:util.formatTime(new Date()),
         })
       //  调用微信接口
-      wx.requestPayment(
-        {
-          'timeStamp': new Date().getTime(),
-          'nonceStr': '',
-          'package': 'prepay_id=wx2017033010242291fcfe0db70013231072',
-          'signType': 'MD5',
-          'paySign': '',
-          'success': function (res) {
-              console.log(res)
-          },
-          'fail': function (res) { },
-          'complete': function (res) { }
-        }) 
+      // wx.requestPayment(
+        // {
+        //   'timeStamp': new Date().getTime().toString(),
+        //   'nonceStr': '',
+        //   'package': 'prepay_id=wx2017033010242291fcfe0db70013231072',
+        //   'signType': 'MD5',
+        //   'paySign': '',
+        //   'success': function (res) {
+        //       console.log(res)
+        //   },
+        //   'fail': function (res) { },
+        //   'complete': function (res) { }
+        // }) 
     // 设置抢座时间
         this.setData({
             seatsdate:util.formatTime(new Date()),
-            // orederCancelVisable:true
+            orederCancelVisable:true
         })
 
 
@@ -250,14 +250,14 @@ Page({
     //给他让座按钮
     seatModalBtn:function(){
         this.setData({
-            seatVisableModal:false,
+            offSeatVisable:false,
         })
     },
 
     //关闭让座弹出框
     bindGiveSeatPop: function () {
         this.setData({
-            seatVisableModal:true
+            offSeatVisable:true
         })
     },
     /*----------------------------- 让座信息 ---------------------------------*/
@@ -337,7 +337,7 @@ Page({
             // 调用获取验证码接口
         }
         this.setData({
-            seatVisableModal:true,
+            offSeatVisable:true,
             seatSuccessModal:false,
         })
     },
@@ -352,12 +352,20 @@ Page({
             title: options.title
         })
         this.setData({
-            // seatVisableModal:false
-          maskVisable: true,
-          seatGiveVisable: true
+          title: options.title,
+            // offSeatVisable:false
+          // maskVisable: true,
+          // seatGiveVisable: true
         })
         var that = this;
+        //调用应用实例的方法获取全局数据
+        app.getUserInfo(function (userInfo) {
+          //更新数据
+          that.setData({
+            userInfo: userInfo
+          })
 
+        })
 
     }
 })

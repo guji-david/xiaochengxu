@@ -4,14 +4,16 @@ var util = require('../../utils/util.js');
 var app = getApp()
 Page({
     data: {
-      inputShowed: false,
-      selectShowed: false,
-      inputVal: "",
+        inputShowed: false,
+        selectShowed: false,
+        inputVal:"",
+        placeholder:'餐厅名称，区域名称',
+        zoneVisable:false,
         memorySearchList:[
-          { id: 0, name: '啊1' },
-          { id: 1, name: '啊啊2' },
-          { id: 2, name: '啊啊啊3' },
-          { id: 3, name: '啊啊啊啊4' },
+            { id: 0, name: '啊1' },
+            { id: 1, name: '啊啊2' },
+            { id: 2, name: '啊啊啊3' },
+            { id: 3, name: '啊啊啊啊4' },
         ],
         hotSearchList:[
             { id: 0, name:'1丰茂烧烤靠11'},
@@ -19,12 +21,7 @@ Page({
             { id: 2, name:'3丰茂烧烤靠33'},
             { id: 3, name:'4丰茂烧烤靠44'},
         ],
-        historySearchList:[
-          // { id: 0, name:'12345丰茂烧烤地方'},
-          // { id: 1, name:'23456丰茂烧烤'},
-          // { id: 2, name:'34567丰茂烧烤'},
-          // { id: 3, name:'56789丰茂烧烤'},
-        ]
+        historySearchList:[]
     },
     //展示搜索框
     showInput: function () {
@@ -46,16 +43,18 @@ Page({
       });
     },
     inputTyping: function (e) {
-     
       this.setData({
         inputVal: e.detail.value
       });
-      if (!!e.detail.value){
-        this.saveHistorySearchList(e.detail.value);
-        this.navigateBack(e.detail.value)
-      }
+
      
      
+    },
+    inputChange:function (e) {
+        this.navigateBack(e.detail.value);
+        if (!!e.detail.value){
+            this.saveHistorySearchList(e.detail.value);
+        }
     },
   //  保存历史搜索列表
     saveHistorySearchList:function(name){
@@ -90,12 +89,14 @@ Page({
         delta: 1
       })
     },
-    onLoad: function () {
-       
-      //  wx.clearStorageSync();
+    onLoad: function (option) {
+         //通过首页传递参数type来区分是否是地区店名 0为地区 1为餐厅
+       // wx.clearStorageSync();
        this.setData({
+           placeholder :option.type==="1" ? "餐厅名称，区域名称":"请输入城市名称进行搜索",
+           zoneVisable: option.type==="1" ? false : true,
          historySearchList: util.getList('historySearchList')
       });
-      console.log(this.data.historySearchList);
+      // console.log(this.data.historySearchList);
     }
 })

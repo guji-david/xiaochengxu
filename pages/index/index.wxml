@@ -4,13 +4,10 @@
 
     <view class="main-search">
       <view class="main-city-zone">
-        <!--<picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{zoneList}}">-->
-          <!--<view>-->
-            <!--<text>{{zoneList[casIndex]}}</text>-->
-          <!--</view>-->
-        <!--</picker>-->
-        <input class="main-input"value="{{inputVal}}" name="inputVal" placeholder="北京北京"
-               bindfocus="searchNameInput"/>
+        <input class="main-input"
+               value="{{inputValZone}}" name="inputValZone" placeholder="北京北京"
+               data-type='0'
+               bindfocus="searchInput"/>
         <view class="main-city-arrow"  >
           <view class="main-city-triangle" >
           </view>
@@ -19,8 +16,10 @@
       </view>
       <view class="main-hotel-zone">
         <icon class="weui-icon-search my-weui-icon-search"size="14"type="search"></icon>
-        <input class="main-input"value="{{inputVal}}" name="inputVal" placeholder="餐厅名称，区域名称"
-               bindfocus="searchNameInput"/>
+        <input class="main-input"value="{{inputValShop}}"
+               name="inputValShop" placeholder="餐厅名称，区域名称"
+               data-type='1'
+               bindfocus="searchInput"/>
       </view>
     </view>
 

@@ -1,16 +1,18 @@
 
 .user-comon {
   /* width: 100%; */
-   background: #333;
-   color: #fff;
-  padding: 15rpx 30rpx;
-  font-size: 32rpx;
+   background: #fff;
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 22px;
 }
 .user-comon .user-info-zone{
+    padding: 20px 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items:center;
-  margin: 20rpx 15rpx;
 }
 .user-info-zone .user-info-img{
   width: 140rpx;
@@ -18,55 +20,107 @@
   border-radius: 70rpx;
 }
 .user-info-zone .user-info-text{
-  margin-left: 40rpx;
-}
-.my-weui-cell_access{
-  background: #fff;
+  margin-top: 20px;
 }
 
+.user-tel{
+    margin-top: 20px;
+    background: #fff;
+    line-height: 50px;
+}
 
 
 
 
 /*-------------------------------------------modal的样式----------------------------  */
-
-
+.actionSheet-layer{
+    position:fixed;
+    bottom: 0;
+    width:100%;
+    background-color:#fff;
+    display:block;
+    z-index: 10
+}
 .my-weui-cells{
-  position:relative;
-  line-height:1.41176471;
-  font-size:28rpx;
+    position:relative;
+    line-height: 18px;
+    /*line-height:1.41176471;*/
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #999999;
+
+    letter-spacing: 0;
 
 }
 .my-weui-cell{
-     padding:5px 0; 
-  position:relative;
-display:-webkit-box;
-display:-webkit-flex;
-display:flex;
--webkit-box-align:center;
--webkit-align-items:center;
-align-items:center;
+    position:relative;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+    border-bottom: 1rpx solid #F5F5F5;
+    padding:8px 0;
+    margin:0 15px ;
 
-  color: #000;
- 
+}
+
+.my-weui-cell__bd{
+    position: relative;
+    -webkit-box-flex:1;
+    -webkit-flex:1;
+    flex:1;
+}
+.weui-cell_primary{
+    display:flex;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+}
+.my-weui-cell_noline{
+    border-bottom:none;
 }
 .my-weui-cell__bd{
-  position: relative;
-  -webkit-box-flex:1;
- -webkit-flex:1;
- flex:1;
+    position: relative;
+    -webkit-box-flex:1;
+    -webkit-flex:1;
+    flex:1;
+    color: #333333;
+}
+.my-weui-cell__bd .my-cancel{
+    position: absolute;
+    /*top:-10px;*/
+    right:-2px;
 
 }
- .my-cancel{
-  position: absolute;
-   top:-90rpx; 
-  left:-20rpx;
-  
+.my-weui-cell__bd .my-cancel .my-cancel-img{
+    width: 18px;
+    height: 18px;
 }
-.my-cancel .my-cancel-img{
- 
-   width: 40rpx;
-  height: 40rpx;
+.my-weui-cell__bd .my-head-title .my-title{
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #1BA383;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-right: 5px;
+}
+
+.my-weui-cell__bd .my-userInfo{
+    display: flex;
+    direction: row;
+    align-items:center;
+    justify-content:center;
+}
+.my-order-info-zone{
+    margin-right: 15rpx;
+
+}
+.my-order-info-zone .my-order-info-img{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius:30rpx;
 }
 
 
@@ -81,41 +135,86 @@ align-items:center;
 }
 
 .my-weui-cell__ft .my-input{
-  
+    margin-right:14rpx;
+    text-align:right;
+    padding: 4rpx 0;
 
-border:1px solid #e6e6ea;
-border-radius:6rpx;
- text-align:center;
- padding: 4rpx 0;
- 
 }
- .my-weui-cell__ft .my-input-tel{
- 
-  /* padding-left:10rpx; 
-  text-align: left; */
-  width:160px;
+.my-weui-cell__ft .my-input-tel{
+    /* text-indent: 16rpx; */
+    /*padding-left:10rpx; */
+    /*text-align: left;*/
+    /*width:190px;*/
 }
 .my-weui-cell__ft .my-input-code{
-  width:67px;
+    width:100px;
+    margin-right:18px;
+}
 
-} 
 .my-weui-cell__ft .my-btn{
-
- margin-left:10rpx;
-/* border:1px solid #e6e6ea; */
-border-radius:6rpx;
- text-align:center;
-  line-height: 1.4rem;
-  min-height:1.4rem; 
-  padding: 4rpx 0;
-   
-  width:90px;
-  font-size:28rpx;
-  background-color:#fff;
-
+    font-family: PingFangSC-Regular;
+    color: #1BA383;
 }
-  .my-weui-cell .hid{
-    visibility:hidden; 
+.hid{
+    visibility:hidden;
     /* color: transparent; */
-  
+
 }
+.my-weui-cell .my-weui-textarea-zone{
+    width: 100%;
+    border:1px solid #e6e6ea;
+    border-radius:6rpx;
+
+}
+.my-weui-textarea-zone .my-weui-textarea{
+
+    height: 3.3em;
+    padding: 15rpx;
+}
+.my-button-zone{
+    line-height: 24px;
+    padding:12px 0;
+    text-align: center;
+    width: 100%;
+    background: #1BA383;
+    font-family: PingFangSC-Medium;
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+
+}
+.my-weui-cell__ft .my-pay-person{
+    font-size:36rpx;
+    margin-right:8rpx;
+    font-weight:600;
+}
+.my-weui-cell__ft .my-pay-price{
+    font-size:36rpx;
+    margin-right:8rpx;
+    font-weight:600;
+    color:#1BA383;
+}
+.my-weui-cell__ft .my-pay-phone{
+    font-size:36rpx;
+    /*margin-right:8rpx;*/
+    font-weight:bold;
+    color:rgba(0,0,0,0.4);
+}
+.my-weui-cell .my-notice{
+    color:#F55231;
+    font-weight:bold ;
+}
+
+/* 遮罩层 */
+.cover{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.4);
+    display:block;
+    z-index: 1
+}
+
+

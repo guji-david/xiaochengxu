@@ -5,15 +5,15 @@ var app = getApp()
 Page({
     data: {
         userInfo: {},
-        hiddenmodalput: true,//可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框  
-        getVerifyCodeText: '获取验证码',
+        hiddenmodalput: false,//可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框
+        getVerifyCodeText: '发送验证码',
         count: 60,
         intervalId: '',
         mobile:'',
         disabled: false,
         code: '',//验证码
         phone:'',//手机号
-       
+        maskVisable:false
     },
     //toast 全局调用
     toastApply:function(msg){
@@ -73,7 +73,7 @@ Page({
       if (that.data.count <= 0) {
         clearInterval(that.data.intervalId);
         that.setData({
-          getVerifyCodeText: '获取验证码'
+          getVerifyCodeText: '发送验证码'
         })
         that.setData({
           count: 60
@@ -105,13 +105,15 @@ Page({
 
     modalinput: function () {
       this.setData({
+          maskVisable: !this.data.maskVisable,
         hiddenmodalput: !this.data.hiddenmodalput
       })
     },
     //取消按钮  
     cancel: function () {
       this.setData({
-        hiddenmodalput: true
+          maskVisable:false,
+        hiddenmodalput: false
       });
     },
     //确认  
@@ -125,8 +127,11 @@ Page({
         return;
       }
       this.setData({
-        hiddenmodalput: true
+          maskVisable:false,
+          hiddenmodalput: false,
+          mobile :util.desensitization(this.data.phone)
       })
+        util.setMobile('mobile', this.data.phone)
     } ,
 
     onLoad: function () {

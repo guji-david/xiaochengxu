@@ -74,7 +74,7 @@
                         </view>
                     </view>
                     <view class="my-weui-cell__ft">
-                        <view class="my-order-userInfo-btn my-order-userInfo-btn2"size=""type="default"
+                        <view class="my-order-userInfo-btn my-order-userInfo-btn2"
                               bindtap="seatModalBtn">给TA让座</view>
                     </view>
                 </view>
@@ -85,82 +85,82 @@
 
     </view>
 
-    <view >
-            <view class="my-order-cells">
-                <view class="order-title">
-                    该店的抢座信息
-                </view>
-                <view >
-                    <view class="my-order-cell">
-                        <view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>
-                        <view class="my-weui-cell__ft">
-                            <view class="my-weui-cell__ft__text">等待接单</view>
-                        </view>
-                    </view>
-                    <view class="my-order-cell my-order-cell-noline">
-                        <view class="my-weui-cell__bd">
-                            <view class="my-order-userInfo">
-                                <view class="my-order-info-zone" >
-                                    <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
-                                    </image>
-                                </view>
-                                <view class="my-userInfo-item">
+    <!--<view >-->
+            <!--<view class="my-order-cells">-->
+                <!--<view class="order-title">-->
+                    <!--该店的抢座信息-->
+                <!--</view>-->
+                <!--<view >-->
+                    <!--<view class="my-order-cell">-->
+                        <!--<view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>-->
+                        <!--<view class="my-weui-cell__ft">-->
+                            <!--<view class="my-weui-cell__ft__text">等待接单</view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                    <!--<view class="my-order-cell my-order-cell-noline">-->
+                        <!--<view class="my-weui-cell__bd">-->
+                            <!--<view class="my-order-userInfo">-->
+                                <!--<view class="my-order-info-zone" >-->
+                                    <!--<image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >-->
+                                    <!--</image>-->
+                                <!--</view>-->
+                                <!--<view class="my-userInfo-item">-->
 
-                                    <view>
-                                        {{userInfo.nickName}}
-                                        <view class="my-order-person">人数：<text>{{totalPerson}}</text>人</view>
-                                    </view>
+                                    <!--<view>-->
+                                        <!--{{userInfo.nickName}}-->
+                                        <!--<view class="my-order-person">人数：<text>{{totalPerson}}</text>人</view>-->
+                                    <!--</view>-->
 
-                                    <view class="my-order-seat my-order-seat2">
-                                        让座可赚：￥{{totalPrice}}
-                                    </view>
-                                </view>
+                                    <!--<view class="my-order-seat my-order-seat2">-->
+                                        <!--让座可赚：￥{{totalPrice}}-->
+                                    <!--</view>-->
+                                <!--</view>-->
 
-                            </view>
-                        </view>
-                        <view class="my-weui-cell__ft">
-                            <view class="my-order-userInfo-btn my-order-userInfo-btn2"size=""type="default"
-                                  bindtap="seatModalBtn">给TA让座</view>
-                        </view>
-                    </view>
-                </view>
-                <view style="margin-top: 5px">
-                    <view class="my-order-cell">
-                        <view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>
-                        <view class="my-weui-cell__ft">
-                            <view class="my-weui-cell__ft__text">等待接单</view>
-                        </view>
-                    </view>
-                    <view class="my-order-cell my-order-cell-noline">
-                        <view class="my-weui-cell__bd">
-                            <view class="my-order-userInfo">
-                                <view class="my-order-info-zone" >
-                                    <image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >
-                                    </image>
-                                </view>
-                                <view class="my-userInfo-item">
+                            <!--</view>-->
+                        <!--</view>-->
+                        <!--<view class="my-weui-cell__ft">-->
+                            <!--<view class="my-order-userInfo-btn my-order-userInfo-btn2"size=""type="default"-->
+                                  <!--bindtap="seatModalBtn">给TA让座</view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                <!--</view>-->
+                <!--<view style="margin-top: 5px">-->
+                    <!--<view class="my-order-cell">-->
+                        <!--<view class="my-weui-cell__bd">抢座时间：<text>{{seatsdate}}</text></view>-->
+                        <!--<view class="my-weui-cell__ft">-->
+                            <!--<view class="my-weui-cell__ft__text">等待接单</view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                    <!--<view class="my-order-cell my-order-cell-noline">-->
+                        <!--<view class="my-weui-cell__bd">-->
+                            <!--<view class="my-order-userInfo">-->
+                                <!--<view class="my-order-info-zone" >-->
+                                    <!--<image class="my-order-info-img" src="{{userInfo.avatarUrl}}" >-->
+                                    <!--</image>-->
+                                <!--</view>-->
+                                <!--<view class="my-userInfo-item">-->
 
-                                    <view>
-                                        {{userInfo.nickName}}
-                                        <view class="my-order-person">人数：<text>{{totalPerson}}</text>人</view>
-                                    </view>
+                                    <!--<view>-->
+                                        <!--{{userInfo.nickName}}-->
+                                        <!--<view class="my-order-person">人数：<text>{{totalPerson}}</text>人</view>-->
+                                    <!--</view>-->
 
-                                    <view class="my-order-seat my-order-seat2">
-                                        让座可赚：￥{{totalPrice}}
-                                    </view>
-                                </view>
+                                    <!--<view class="my-order-seat my-order-seat2">-->
+                                        <!--让座可赚：￥{{totalPrice}}-->
+                                    <!--</view>-->
+                                <!--</view>-->
 
-                            </view>
-                        </view>
-                        <view class="my-weui-cell__ft">
-                            <view class="my-order-userInfo-btn3"
-                                  >已上座</view>
-                        </view>
-                    </view>
-                </view>
+                            <!--</view>-->
+                        <!--</view>-->
+                        <!--<view class="my-weui-cell__ft">-->
+                            <!--<view class="my-order-userInfo-btn3"-->
+                                  <!--&gt;已上座</view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                <!--</view>-->
 
-            </view>
-    </view>
+            <!--</view>-->
+    <!--</view>-->
 
     <!--------------------------------------------------------遮罩层----------------------------------- -->
     <view class="cover" wx:if="{{maskVisable}}" > </view>
@@ -169,84 +169,18 @@
     <template is="toast" data="{{toastText,isShowToast}}"></template>
 
     <!--------------------------------------------------------取消订单弹出框----------------------------------- -->
-    <!--<modal hidden="{{orderVisableModal}}"-->
-           <!--title="取消提示"-->
-           <!--confirm-text="确定"-->
-           <!--bindconfirm="orderModalConfirm"-->
-           <!--cancel-text="取消"-->
-           <!--bindcancel="orderModalCancel"-->
-    <!--&gt;-->
-
-       <!--<view class="">取消后费用将会自动退回到你的微信钱包，是否要取消当前抢座订单</view>-->
-    <!--</modal>-->
-
-    <!----------------------------------------------让座页面-----------------------------------------------------------  -->
-    <modal hidden="{{offSeatVisable}}"
-           title="让座信息"
-           confirm-text="确定让座"
-           bindconfirm="seatModaComfirmBtn"
-            no-cancel
+    <modal hidden="{{orderVisableModal}}"
+           title="取消提示"
+           confirm-text="确定"
+           bindconfirm="orderModalConfirm"
+           cancel-text="取消"
+           bindcancel="orderModalCancel"
     >
 
-        <view class="seatRush-zone">
-                        <view class="my-cancel-seat" bindtap="bindGiveSeatPop">
-
-                            <image class="my-cancel-img" src="/static/img/close.png" >
-                            </image>
-                        </view>
-
-
-                <view class="my-seat-cell">
-                    <view class="my-weui-cell__bd">座 位 信 息</view>
-                    <view class="my-weui-cell__ft">
-                        <input class="my-input my-input-seat"
-                               placeholder='座位信息，包厢名称'
-                               value="{{seatDetail}}"
-                               bindchange="seatDetail"
-                               auto-focus
-                        ></input>
-                    </view>
-                </view>
-                <view class="my-seat-cell">
-                    <view class="my-weui-cell__bd">手机号
-                    </view>
-                    <view class="my-weui-cell__ft">
-                        <input class="my-input my-input-seat"
-                               placeholder='请输入正确的手机号'
-                               value="{{seatPhone}}"
-                               bindchange="seatPhone"
-                               maxlength="11"
-                        >
-                        </input>
-                    </view>
-                </view>
-                <view class="my-seat-cell">
-                    <view class="my-weui-cell__bd">短信验证码</view>
-                    <view class="my-weui-cell__ft">
-                        <view>
-                            <input class="my-input my-input-seat-code"
-                                   placeholder='验证码'
-                                   bindchange="seatCode"
-                                   value="{{seatCode}}"
-                                   maxlength="6"
-                            >
-                            </input>
-                        </view>
-                        <button
-                                class="my-btn"
-                                bindtap="bindSeatSendCodeTap"  disabled="{{seatDisabled}}" >{{getVerifyCodeText}}</button>
-                    </view>
-                </view>
-        </view>
-
-
-
-
-
-
-
-
+       <view class="">取消后费用将会自动退回到你的微信钱包，是否要取消当前抢座订单</view>
     </modal>
+
+
 
     <!----------------------------------------------座位成功之后 提示-----------------------------------------------------------  -->
     <modal hidden="{{seatSuccessModal}}"
@@ -429,7 +363,7 @@
         <view class="my-weui-cells">
             <view class="my-weui-cell my-weui-cell_noline">
                 <view class="my-weui-cell__bd">
-                    <view class="my-cancel" bindtap="bindSeatPop">
+                    <view class="my-cancel" bindtap="bindGiveSeatPop">
 
                         <image class="my-cancel-img" src="/static/img/close.png" >
                         </image>

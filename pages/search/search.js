@@ -79,12 +79,15 @@ Page({
  },
   //  传递到上页参数
      navigateBack:function(name){
+        // console.log(name);
       let pages = getCurrentPages();//当前页面
       let prevPage = pages[pages.length - 2];//上一页面
-      prevPage.setData({//直接给上移页面赋值
-        inputVal:name,
+         prevPage.setData({//直接给上移页面赋值
+             inputVal:name,
+             zoneVisable:this.data.zoneVisable
 
-      });
+         });
+
       wx.navigateBack({//返回
         delta: 1
       })
@@ -97,6 +100,21 @@ Page({
            zoneVisable: option.type==="1" ? false : true,
          historySearchList: util.getList('historySearchList')
       });
+       if(option.type==="0"){
+           wx.getLocation({
+               type: 'wgs84',
+               success: function(res) {
+                   var latitude = res.latitude;
+                   console.log(latitude);
+                   var longitude = res.longitude;
+                   console.log(longitude);
+                   var speed = res.speed;
+                   console.log(speed);
+                   var accuracy = res.accuracy;
+                   console.log(speed);
+               }
+           })
+       }
       // console.log(this.data.historySearchList);
     }
 })

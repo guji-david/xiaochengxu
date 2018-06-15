@@ -28,7 +28,7 @@ Page({
         noticeMsg:'花钱省时间,支付成功后,你将可以随时取消抢座,平台将退回所支付金额(如果你的抢订单被接单后,取消需要口3元服务)',
         seatsdate:'',
         orderVisableModal:true,
-        offSeatVisable:true,
+        offSeatVisable:false,
         seatSuccessModal:true,
         seatDetail:'',
         seatPhone:'',
@@ -250,14 +250,16 @@ Page({
     //给他让座按钮
     seatModalBtn:function(){
         this.setData({
-            offSeatVisable:false,
+            maskVisable:true,
+            offSeatVisable:true
         })
     },
 
     //关闭让座弹出框
     bindGiveSeatPop: function () {
         this.setData({
-            offSeatVisable:true
+            maskVisable:false,
+            offSeatVisable:false
         })
     },
     /*----------------------------- 让座信息 ---------------------------------*/
@@ -337,7 +339,7 @@ Page({
             // 调用获取验证码接口
         }
         this.setData({
-            offSeatVisable:true,
+            offSeatVisable:false,
             seatSuccessModal:false,
         })
     },
@@ -353,9 +355,9 @@ Page({
         })
         this.setData({
           title: options.title,
-            // offSeatVisable:false
-          // maskVisable: true,
-          // seatGiveVisable: true
+            offSeatVisable:false,
+          maskVisable: true,
+          seatGiveVisable: true
         })
         var that = this;
         //调用应用实例的方法获取全局数据

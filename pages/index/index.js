@@ -35,10 +35,17 @@ Page({
     onShow: function () {
       let pages = getCurrentPages();
       let currPage = pages[pages.length - 1];
+        console.log(currPage);
+        if(!currPage.data.zoneVisable){
+            this.setData({//将携带的参数赋值
+                inputValShop: currPage.data.inputVal
+            });
+        }else{
+            this.setData({//将携带的参数赋值
+                inputValZone: currPage.data.inputVal
+            });
+        }
 
-      this.setData({//将携带的参数赋值
-          // inputValShop: currPage.data.inputVal
-      });
      
       
     },
